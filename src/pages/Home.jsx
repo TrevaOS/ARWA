@@ -2,48 +2,70 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import './Home.css'
 
-
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
-const upcomingEvents = [
+const pastEvents = [
   {
     id: 1,
-    date: 'Apr 15',
-    month: 'APR',
-    day: '15',
-    title: 'Annual Community Gathering',
-    desc: 'Join us for our yearly get-together with cultural performances, food stalls, and exciting activities for all ages.',
-    tag: 'Community',
+    date: 'Feb 21',
+    month: 'FEB',
+    day: '21',
+    title: 'Free Health Camp',
+    desc: 'Free health services including Eye Screening, Dental Check-up, Blood Donation, Breast Cancer Screening, Homeopathic Consultation, General Physician & Gynaecological Consultation.',
+    tag: 'Health',
     color: 'blue',
+    year: '2026',
   },
   {
     id: 2,
-    date: 'Apr 28',
-    month: 'APR',
-    day: '28',
-    title: 'Cleanliness Drive',
-    desc: 'A neighbourhood-wide initiative to keep our streets clean and green. Gloves and bags will be provided.',
-    tag: 'Environment',
+    date: 'Mar 8',
+    month: 'MAR',
+    day: '08',
+    title: "Women's Day Celebration",
+    desc: 'A special celebration honouring the women of Attiguppe — cultural programmes, games, and a heartfelt gathering to celebrate womanhood and community spirit.',
+    tag: 'Community',
     color: 'green',
+    year: '2026',
   },
   {
     id: 3,
-    date: 'May 10',
-    month: 'MAY',
-    day: '10',
-    title: 'Health and Wellness Camp',
-    desc: 'Free health check-ups, yoga sessions, and consultations with doctors from leading hospitals.',
-    tag: 'Health',
+    date: 'Mar 29',
+    month: 'MAR',
+    day: '29',
+    title: 'Saree Walkathon',
+    desc: 'A unique walkathon celebrating the grace of the saree — bringing families and community members together to honor traditions, strengthen relationships, and promote togetherness.',
+    tag: 'Cultural',
     color: 'orange',
+    year: '2026',
   },
 ]
 
 const galleryImages = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800', alt: 'Community event' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800', alt: 'Residents gathering' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800', alt: 'Cultural celebration' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800', alt: 'Neighbourhood park' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800', alt: 'Meeting' },
+  {
+    id: 1,
+    src: 'https://content.jdmagicbox.com/comp/bangalore/w7/080pxx80.xx80.191120193649.y4w7/catalogue/lakshminarasimha-temple-chandra-layout-bangalore-temples-5j4p5sda9x.jpg',
+    alt: 'Lakshmi Narasimha Temple, Attiguppe',
+  },
+  {
+    id: 2,
+    src: 'https://i.ytimg.com/vi/W7Y46BawnhM/maxresdefault.jpg',
+    alt: 'Lakshmi Narasimha Swami Temple',
+  },
+  {
+    id: 3,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Attiguppe_metro_station.jpg/1200px-Attiguppe_metro_station.jpg',
+    alt: 'Attiguppe Metro Station',
+  },
+  {
+    id: 4,
+    src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800',
+    alt: 'Community gathering',
+  },
+  {
+    id: 5,
+    src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
+    alt: 'Free Health Camp',
+  },
 ]
 
 const nearbyPlaces = [
@@ -52,8 +74,10 @@ const nearbyPlaces = [
     name: 'Attiguppe Metro Station',
     category: 'Transport',
     desc: 'Namma Metro Purple Line station connecting Attiguppe to the rest of Bengaluru seamlessly.',
+    detail: 'Part of Namma Metro Purple Line (Line 4), connecting Mysuru Road to Whitefield. The station provides seamless connectivity to Majestic, MG Road, and Whitefield. Auto-rickshaws and buses are easily available outside.',
     distance: '0.2 km',
     color: 'blue',
+    frontImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Attiguppe_metro_station.jpg/1200px-Attiguppe_metro_station.jpg',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -67,9 +91,11 @@ const nearbyPlaces = [
     id: 2,
     name: 'Lakshmi Narasimha Temple',
     category: 'Heritage',
-    desc: 'One of the oldest temples in the area, believed to be established by Rishi Durvasa and renovated in the 17th century.',
+    desc: 'One of the oldest temples in the area — the family deity of the local shepherd community, renovated in the 17th century.',
+    detail: 'The iconic Lakshmi Narasimha Swami Temple is a cornerstone of Attiguppe\'s cultural identity. Believed to be established by Rishi Durvasa, the temple was renovated in the 17th century and remains the spiritual heart of the community.',
     distance: '0.4 km',
     color: 'orange',
+    frontImg: 'https://content.jdmagicbox.com/comp/bangalore/w7/080pxx80.xx80.191120193649.y4w7/catalogue/lakshminarasimha-temple-chandra-layout-bangalore-temples-5j4p5sda9x.jpg',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
@@ -82,8 +108,10 @@ const nearbyPlaces = [
     name: 'Government Model High School',
     category: 'Education',
     desc: 'A well-established government school in Attiguppe serving the local community for decades.',
+    detail: 'Government Model High School, Attiguppe — also known as Government High School PU College, RP Layout, Vijayanagar — has been educating the local community for generations. Venue for the Free Health Camp organised by ARWA.',
     distance: '0.6 km',
     color: 'green',
+    frontImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
@@ -96,8 +124,10 @@ const nearbyPlaces = [
     name: 'Vijayanagar Market',
     category: 'Market',
     desc: 'A bustling local market near Vijayanagar with fresh produce, household goods, and street food.',
+    detail: 'The vibrant Vijayanagar Market is one of the busiest commercial hubs in west Bengaluru, offering everything from fresh vegetables and fruits to clothing, hardware, and street food. Easily accessible from Attiguppe.',
     distance: '0.8 km',
     color: 'red',
+    frontImg: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="9" cy="21" r="1"/>
@@ -109,9 +139,9 @@ const nearbyPlaces = [
 ]
 
 const values = [
-  { title: 'Unity', desc: 'We believe in the power of a unified community working towards shared goals.', color: 'blue' },
-  { title: 'Transparency', desc: 'All decisions and finances are open, honest and accessible to every member.', color: 'green' },
-  { title: 'Inclusion', desc: 'Every resident, regardless of background, has a voice and a seat at the table.', color: 'orange' },
+  { title: 'Community Unity', desc: 'Encouraging cooperation and active participation among all residents of Attiguppe.', color: 'blue' },
+  { title: 'Clean & Green Living', desc: 'Promoting cleanliness and sustainability in our neighbourhood for a better tomorrow.', color: 'green' },
+  { title: 'Social Responsibility', desc: 'Supporting seniors, vulnerable groups, and standing together in times of need.', color: 'orange' },
 ]
 
 const historyHighlights = [
@@ -160,6 +190,7 @@ function useCarousel(total, auto = 4000) {
   useEffect(() => {
     reset()
     return () => clearInterval(timer.current)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total])
 
   return { idx, go }
@@ -169,33 +200,89 @@ function useCarousel(total, auto = 4000) {
 
 export default function Home() {
   const { idx, go } = useCarousel(galleryImages.length)
+  const [showInternship, setShowInternship] = useState(false)
+  const [flippedCard, setFlippedCard] = useState(null)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowInternship(true), 3000)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="home-page">
 
+      {/* ── INTERNSHIP POPUP ── */}
+      {showInternship && (
+        <div className="internship-overlay" onClick={() => setShowInternship(false)}>
+          <div className="internship-popup" onClick={e => e.stopPropagation()}>
+            <button className="internship-close" onClick={() => setShowInternship(false)} aria-label="Close">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            <div className="internship-popup-body">
+              <div className="internship-popup-badge">Internship Opportunity</div>
+              <h2 className="internship-popup-title">Join ARWA as an Intern!</h2>
+              <p className="internship-popup-sub">
+                Are you passionate about community development, civic engagement, and creating real impact at the grassroots level?
+              </p>
+              <div className="internship-popup-gains">
+                <div className="intern-gain-item">
+                  <span className="intern-gain-icon">🌱</span>
+                  <span>Practical exposure to community challenges</span>
+                </div>
+                <div className="intern-gain-item">
+                  <span className="intern-gain-icon">🤝</span>
+                  <span>Work closely with community leaders</span>
+                </div>
+                <div className="intern-gain-item">
+                  <span className="intern-gain-icon">💡</span>
+                  <span>Develop leadership &amp; communication skills</span>
+                </div>
+              </div>
+              <p className="internship-popup-contact">
+                <strong>Dr. Chandana Pradeep</strong> — President<br />
+                <a href="tel:+919986020447">+91 9986020447</a>
+              </p>
+              <div className="internship-popup-actions">
+                <a href="tel:+919986020447" className="btn btn-primary">Get in Touch</a>
+                <button className="btn btn-outline" onClick={() => setShowInternship(false)}>Maybe Later</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-video-wrapper">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600"
-          >
-            <source src="/assets/hero-video.mp4" type="video/mp4" />
-          </video>
+          <img
+            className="hero-bg-img"
+            src="https://bengaluru.mapunity.com/static/media/bangalore_map_placeholder.jpg"
+            alt="Attiguppe neighbourhood"
+            onError={e => {
+              e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1600'
+            }}
+          />
           <div className="hero-overlay" />
         </div>
 
         <div className="hero-content container hero-center">
+          <div className="hero-logo-wrap">
+            <img
+              src="/assets/arwa-logo.png"
+              alt="ARWA"
+              className="hero-logo-img"
+              onError={e => { e.target.style.display = 'none' }}
+            />
+          </div>
           <h1 className="hero-title">
             Your Neighbourhood,<br />
             <span className="hero-accent">Your Community</span>
           </h1>
           <p className="hero-sub">
-            Working together to build a cleaner, safer, and more vibrant neighbourhood for every resident of Attiguppe.
+            Working together to build a cleaner, safer, and more vibrant neighbourhood for every resident of Attiguppe — By the people, for the people, with the people.
           </p>
           <div className="hero-actions hero-actions-center">
             <Link to="/about" className="btn btn-primary">Discover More</Link>
@@ -212,12 +299,12 @@ export default function Home() {
             <div className="divider" />
             <h2 className="section-title">A Community Built on Trust and Care</h2>
             <p className="about-para">
-              The Attiguppe Residents Welfare Association has been the backbone of neighbourhood governance, welfare, and celebration. We represent every household in Attiguppe, working tirelessly to resolve civic issues, organise events, and foster lasting friendships.
+              The Attiguppe Residents Welfare Association (ARWA) is the backbone of neighbourhood governance, welfare, and celebration. We represent every household in Attiguppe, working tirelessly to resolve civic issues, organise events, and foster lasting friendships.
             </p>
             <p className="about-para">
-              From infrastructure grievances to cultural festivals, we bridge the gap between residents and local authorities while keeping the spirit of community alive.
+              From free health camps to cultural festivals and Women's Wing initiatives, we bridge the gap between residents and local authorities while keeping the spirit of community alive.
             </p>
-            <Link to="/about" className="btn btn-primary">Meet Our Team</Link>
+            <Link to="/about" className="btn btn-primary">Learn More About Us</Link>
           </div>
           <div className="about-teaser-stats">
             <div className="stat-card">
@@ -261,6 +348,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── OUR VISION & MISSION ── */}
+      <section className="section mission-section">
+        <div className="container">
+          <div className="section-head center">
+            <span className="badge badge-green">What Drives Us</span>
+            <div className="divider divider-center" />
+            <h2 className="section-title">Our Vision &amp; Mission</h2>
+          </div>
+          <div className="mission-grid">
+            <div className="mission-card mission-vision">
+              <div className="mission-icon">🌟</div>
+              <h3>Our Vision</h3>
+              <p>To build a well-organised, safe, clean, and inclusive neighbourhood where every resident enjoys overall well-being, mutual respect, and a strong sense of belonging, while fostering sustainable living and social harmony.</p>
+            </div>
+            <div className="mission-card mission-mission">
+              <div className="mission-icon">🎯</div>
+              <h3>Our Mission</h3>
+              <ul className="mission-list">
+                <li><span>🤝</span> Community Unity — encourage cooperation &amp; active participation</li>
+                <li><span>🏛️</span> Effective Representation — bridge between residents &amp; authorities</li>
+                <li><span>📢</span> Collective Voice — safeguard residents' rights &amp; welfare</li>
+                <li><span>🌿</span> Clean &amp; Green Living — promote cleanliness &amp; sustainability</li>
+                <li><span>🎭</span> Community Engagement — organise cultural &amp; social activities</li>
+                <li><span>❤️</span> Social Responsibility — support seniors &amp; vulnerable groups</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── OUR VALUES ── */}
       <section className="section values-section">
         <div className="container">
@@ -286,25 +403,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── UPCOMING EVENTS ── */}
+      {/* ── PAST EVENTS ── */}
       <section className="section events-section">
         <div className="container">
           <div className="section-head">
             <div>
-              <span className="badge badge-blue">Mark Your Calendar</span>
+              <span className="badge badge-blue">Recent Activities</span>
               <div className="divider" />
-              <h2 className="section-title">Upcoming Events</h2>
-              <p className="section-subtitle">Stay involved and be part of our vibrant community life.</p>
+              <h2 className="section-title">Past Events</h2>
+              <p className="section-subtitle">A look at what we have been doing for the community.</p>
             </div>
             <Link to="/events" className="btn btn-outline">View All Events</Link>
           </div>
 
           <div className="events-grid">
-            {upcomingEvents.map((ev) => (
+            {pastEvents.map((ev) => (
               <Link to="/events" key={ev.id} className={`event-card event-${ev.color}`}>
                 <div className="event-date-block">
                   <span className="event-month">{ev.month}</span>
                   <span className="event-day">{ev.day}</span>
+                  <span className="event-year">{ev.year}</span>
                 </div>
                 <div className="event-body">
                   <span className={`event-tag tag-${ev.color}`}>{ev.tag}</span>
@@ -365,7 +483,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── NEARBY PLACES ── */}
+      {/* ── NEARBY PLACES — FLIP CARDS ── */}
       <section className="section places-section">
         <div className="container">
           <div className="section-head">
@@ -373,25 +491,99 @@ export default function Home() {
               <span className="badge badge-blue">Around You</span>
               <div className="divider" />
               <h2 className="section-title">Nearby Attractions</h2>
-              <p className="section-subtitle">Explore what Attiguppe has to offer.</p>
+              <p className="section-subtitle">Hover to explore what Attiguppe has to offer.</p>
             </div>
             <Link to="/places" className="btn btn-outline">See All Places</Link>
           </div>
 
-          <div className="places-grid">
+          <div className="places-flip-grid">
             {nearbyPlaces.map((place) => (
-              <Link to="/places" key={place.id} className={`place-card place-${place.color}`}>
-                <div className={`place-icon-wrap icon-${place.color}`}>{place.icon}</div>
-                <div className="place-body">
-                  <div className="place-meta">
-                    <span className="place-category">{place.category}</span>
-                    <span className="place-distance">{place.distance}</span>
+              <div
+                key={place.id}
+                className={`flip-card${flippedCard === place.id ? ' flipped' : ''}`}
+                onClick={() => setFlippedCard(flippedCard === place.id ? null : place.id)}
+                onMouseEnter={() => setFlippedCard(place.id)}
+                onMouseLeave={() => setFlippedCard(null)}
+              >
+                <div className="flip-card-inner">
+                  {/* Front */}
+                  <div className="flip-front">
+                    <img src={place.frontImg} alt={place.name} loading="lazy" className="flip-front-img" />
+                    <div className="flip-front-overlay">
+                      <div className={`place-icon-wrap icon-${place.color}`}>{place.icon}</div>
+                      <div className="flip-front-meta">
+                        <span className="place-category">{place.category}</span>
+                        <span className="place-distance">{place.distance}</span>
+                      </div>
+                      <h3 className="flip-front-name">{place.name}</h3>
+                      <p className="flip-front-desc">{place.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="place-name">{place.name}</h3>
-                  <p className="place-desc">{place.desc}</p>
+                  {/* Back */}
+                  <div className={`flip-back flip-back-${place.color}`}>
+                    <div className={`flip-back-icon icon-${place.color}`}>{place.icon}</div>
+                    <h3 className="flip-back-name">{place.name}</h3>
+                    <span className="place-distance flip-back-dist">{place.distance} away</span>
+                    <p className="flip-back-detail">{place.detail}</p>
+                  </div>
                 </div>
-              </Link>
+              </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WOMEN'S WING ── */}
+      <section className="section womens-wing-section">
+        <div className="container">
+          <div className="womens-wing-card">
+            <div className="ww-text">
+              <span className="badge badge-green">Newly Launched</span>
+              <h2>Women's Wing</h2>
+              <p>ARWA proudly announces the formation of the <strong>Women's Wing</strong> — a platform for women to lead, share &amp; grow together. Empower | Inspire | Connect</p>
+              <ul className="ww-pillars">
+                <li>Community &amp; Cultural Activities</li>
+                <li>Safety &amp; Support Initiatives</li>
+                <li>Health &amp; Wellness Programs</li>
+                <li>Skill Development &amp; Empowerment</li>
+              </ul>
+              <p className="ww-invite">All interested women residents are welcome!</p>
+              <a href="https://www.instagram.com/attiguppe_residents/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Follow Us on Instagram</a>
+            </div>
+            <div className="ww-visual">
+              <div className="ww-icon-wrap">
+                <span className="ww-big-icon">👩‍👩‍👧‍👦</span>
+                <div className="ww-badge">New</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INSTAGRAM FEED CTA ── */}
+      <section className="section insta-section">
+        <div className="container">
+          <div className="section-head center">
+            <span className="badge badge-blue">Stay Connected</span>
+            <div className="divider divider-center" />
+            <h2 className="section-title">Follow Us on Instagram</h2>
+            <p className="section-subtitle">Stay updated with our latest events and community news.</p>
+          </div>
+          <div className="insta-cta-wrap">
+            <a
+              href="https://www.instagram.com/attiguppe_residents/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="insta-cta-btn"
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              @attiguppe_residents
+            </a>
+            <p className="insta-handle-note">51+ followers · 9 posts · Events, health camps, community updates</p>
           </div>
         </div>
       </section>

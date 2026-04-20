@@ -1,21 +1,21 @@
 import { useState } from 'react'
 import './Gallery.css'
 
-const categories = ['All', 'Events', 'Community', 'Environment', 'Cultural', 'Sports']
+const categories = ['All', 'Events', 'Community', 'Health', 'Cultural', 'Heritage']
 
 const images = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800', alt: 'Annual Gathering 2024', cat: 'Events' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800', alt: 'Community Meet', cat: 'Community' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800', alt: 'Cultural Festival', cat: 'Cultural' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800', alt: 'Environment Drive', cat: 'Environment' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800', alt: 'Planning Session', cat: 'Community' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1559067096-49ebca3406aa?w=800', alt: 'Cleanliness Drive', cat: 'Environment' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1521537634581-0dced2fee2ef?w=800', alt: 'Sports Meet', cat: 'Sports' },
-  { id: 8, src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800', alt: 'Health Camp', cat: 'Events' },
-  { id: 9, src: 'https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=800', alt: 'Diwali Celebration', cat: 'Cultural' },
-  { id: 10, src: 'https://images.unsplash.com/photo-1601758177266-bc599de87707?w=800', alt: 'Republic Day', cat: 'Events' },
-  { id: 11, src: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800', alt: 'Community Sports', cat: 'Sports' },
-  { id: 12, src: 'https://images.unsplash.com/photo-1574283751537-09ce5de08fd2?w=800', alt: 'Cultural Dance', cat: 'Cultural' },
+  { id: 1, src: 'https://content.jdmagicbox.com/comp/bangalore/w7/080pxx80.xx80.191120193649.y4w7/catalogue/lakshminarasimha-temple-chandra-layout-bangalore-temples-5j4p5sda9x.jpg', alt: 'Lakshmi Narasimha Temple, Attiguppe', cat: 'Heritage' },
+  { id: 2, src: 'https://i.ytimg.com/vi/W7Y46BawnhM/maxresdefault.jpg', alt: 'Lakshmi Narasimha Swami Temple', cat: 'Heritage' },
+  { id: 3, src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800', alt: 'Free Health Camp 2026', cat: 'Health' },
+  { id: 4, src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800', alt: "Women's Day Celebration", cat: 'Cultural' },
+  { id: 5, src: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=800', alt: 'Saree Walkathon 2026', cat: 'Cultural' },
+  { id: 6, src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', alt: "Women's Wing Launch", cat: 'Community' },
+  { id: 7, src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800', alt: 'Community Gathering', cat: 'Events' },
+  { id: 8, src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800', alt: 'Community Meeting', cat: 'Community' },
+  { id: 9, src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800', alt: 'Government School, Attiguppe', cat: 'Community' },
+  { id: 10, src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800', alt: 'ARWA Planning Session', cat: 'Community' },
+  { id: 11, src: 'https://images.unsplash.com/photo-1559067096-49ebca3406aa?w=800', alt: 'Cleanliness Drive', cat: 'Events' },
+  { id: 12, src: 'https://images.unsplash.com/photo-1601758177266-bc599de87707?w=800', alt: 'Republic Day Celebration', cat: 'Events' },
 ]
 
 export default function Gallery() {
@@ -42,14 +42,13 @@ export default function Gallery() {
         <div className="container">
           <span className="badge badge-blue">Our Memories</span>
           <h1>Photo Gallery</h1>
-          <p>Moments captured from our events, celebrations, and community initiatives.</p>
+          <p>Moments captured from our events, celebrations, and community initiatives in Attiguppe.</p>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
 
-          {/* Category filter */}
           <div className="gallery-cats">
             {categories.map(c => (
               <button
@@ -62,7 +61,6 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* Grid */}
           <div className="gallery-grid">
             {filtered.map(img => (
               <div
@@ -82,10 +80,18 @@ export default function Gallery() {
           {filtered.length === 0 && (
             <div className="gallery-empty">No photos in this category yet.</div>
           )}
+
+          <div className="gallery-insta-note">
+            <p>
+              See more photos and updates on our Instagram —{' '}
+              <a href="https://www.instagram.com/attiguppe_residents/" target="_blank" rel="noopener noreferrer">
+                @attiguppe_residents
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Lightbox */}
       {lightbox && (
         <div className="lightbox-overlay" onClick={close}>
           <div className="lightbox-box" onClick={e => e.stopPropagation()}>

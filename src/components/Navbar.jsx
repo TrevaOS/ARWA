@@ -39,7 +39,16 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="navbar-logo">
           <div className="logo-mark">
-            <div className="logo-circle">
+            <img
+              src="/assets/arwa-logo.png"
+              alt="ARWA Logo"
+              className="logo-img"
+              onError={e => {
+                e.target.style.display = 'none'
+                e.target.nextSibling.style.display = 'flex'
+              }}
+            />
+            <div className="logo-circle logo-fallback" style={{ display: 'none' }}>
               <span>AR</span>
             </div>
           </div>

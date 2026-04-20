@@ -1,7 +1,6 @@
 import { useState } from "react";
 import './Membership.css';
 
-// After deploying the Apps Script (see AppScript.js), paste your deployment URL here
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID_HERE/exec";
 
 const benefits = [
@@ -10,50 +9,23 @@ const benefits = [
   { icon: "🛡️", color: "orange", title: "Grievance Support", desc: "We take up your complaints with authorities and ensure timely resolution." },
   { icon: "📰", color: "blue", title: "Newsletter Access", desc: "Receive our monthly digital newsletter with updates, tips, and notices." },
   { icon: "🤝", color: "green", title: "Community Network", desc: "Connect with like-minded residents and build lasting neighbourhood relationships." },
-  { icon: "🏅", color: "orange", title: "Member Recognition", desc: "Get acknowledged for your contributions to the community in our annual reports." },
-];
-
-const plans = [
-  {
-    name: "Annual",
-    price: "₹500",
-    period: "/ year",
-    color: "blue",
-    popular: false,
-    features: ["Full voting rights", "All event invites", "Grievance support", "Newsletter", "Community network"],
-  },
-  {
-    name: "Lifetime",
-    price: "₹2,000",
-    period: "one-time",
-    color: "green",
-    popular: true,
-    features: ["Full voting rights", "All event invites", "Grievance support", "Newsletter", "Community network", "Lifetime member badge", "Annual recognition"],
-  },
-  {
-    name: "Senior Citizen",
-    price: "₹200",
-    period: "/ year",
-    color: "orange",
-    popular: false,
-    features: ["Full voting rights", "All event invites", "Grievance support", "Newsletter", "Community network"],
-  },
+  { icon: "🏅", color: "orange", title: "Member Recognition", desc: "Get acknowledged for your contributions to the community." },
 ];
 
 const faqs = [
-  { q: "Who can become a member?", a: "Any resident of the association area — whether you own or rent your home — is eligible to become a member." },
-  { q: "How is the membership fee used?", a: "Fees are used to fund community events, maintenance initiatives, grievance handling, and administrative activities of the association." },
-  { q: "Can I cancel my membership?", a: "Annual memberships are non-refundable once processed. Lifetime memberships are also final. If you have concerns, please contact us." },
-  { q: "How long does approval take?", a: "After submitting the form and payment, membership is typically approved within 3–5 working days. You'll receive a confirmation email." },
-  { q: "Is the senior citizen plan for all above 60?", a: "Yes, any resident aged 60 years or above as of the date of application qualifies for the senior citizen rate." },
+  { q: "Who can become a member?", a: "Any resident of Attiguppe — whether you own or rent your home — is eligible to become a member of ARWA." },
+  { q: "What happens after I submit this form?", a: "Our team will review your application and get back to you within 3–5 working days with details about membership confirmation and the next steps." },
+  { q: "Is there a membership fee?", a: "Membership fee details will be communicated to you by our team after reviewing your application." },
+  { q: "How long does approval take?", a: "After submitting the form, membership is typically confirmed within 3–5 working days. You'll receive a confirmation via the contact details you provide." },
+  { q: "What is the Women's Wing?", a: "The Women's Wing is a newly launched platform for women residents to lead, share, and grow together — through community activities, health programs, safety initiatives, and skill development." },
 ];
 
 export default function Membership() {
   const [form, setForm] = useState({
     fullName: "", email: "", phone: "", address: "",
-    plan: "Annual", houseNo: "", occupation: "", agree: false,
+    memberType: "General", houseNo: "", occupation: "", agree: false,
   });
-  const [status, setStatus] = useState(null); // null | 'loading' | 'success' | 'error'
+  const [status, setStatus] = useState(null);
   const [openFaq, setOpenFaq] = useState(null);
 
   const handleChange = (e) => {
@@ -63,17 +35,17 @@ export default function Membership() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.agree) return alert("Please agree to the terms to proceed.");
+    if (!form.agree) return alert("Please confirm that you are a resident to proceed.");
     setStatus("loading");
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, submittedAt: new Date().toISOString() }),
+        body: JSON.stringify({ ...form, formType: "JoinUs", submittedAt: new Date().toISOString() }),
       });
       setStatus("success");
-      setForm({ fullName: "", email: "", phone: "", address: "", plan: "Annual", houseNo: "", occupation: "", agree: false });
+      setForm({ fullName: "", email: "", phone: "", address: "", memberType: "General", houseNo: "", occupation: "", agree: false });
     } catch {
       setStatus("error");
     }
@@ -86,7 +58,7 @@ export default function Membership() {
         <div className="container">
           <span className="badge badge-blue">Join Us</span>
           <h1>Become a Member</h1>
-          <p>Be part of a stronger, more connected community</p>
+          <p>Be part of a stronger, more connected community in Attiguppe</p>
         </div>
       </section>
 
@@ -96,7 +68,7 @@ export default function Membership() {
           <div className="text-center mb-section">
             <span className="badge badge-green">Why Join?</span>
             <h2 className="section-title">Member Benefits</h2>
-            <p className="section-subtitle">Here's what you get when you join our association</p>
+            <p className="section-subtitle">Here is what you get when you join the Attiguppe Residents Welfare Association</p>
           </div>
           <div className="benefits-grid">
             {benefits.map((b) => (
@@ -110,53 +82,29 @@ export default function Membership() {
         </div>
       </section>
 
-      {/* Plans */}
-      <section className="section plans-section">
-        <div className="container">
-          <div className="text-center mb-section">
-            <span className="badge badge-blue">Pricing</span>
-            <h2 className="section-title">Membership Plans</h2>
-            <p className="section-subtitle">Choose the plan that works best for you</p>
-          </div>
-          <div className="plans-grid">
-            {plans.map((plan) => (
-              <div className={`plan-card plan-${plan.color} ${plan.popular ? "plan-popular" : ""}`} key={plan.name}>
-                {plan.popular && <div className="plan-popular-badge">Most Popular</div>}
-                <div className="plan-header">
-                  <h3 className="plan-name">{plan.name}</h3>
-                  <div className="plan-price">
-                    <span className="plan-amount">{plan.price}</span>
-                    <span className="plan-period">{plan.period}</span>
-                  </div>
-                </div>
-                <ul className="plan-features">
-                  {plan.features.map((f) => (
-                    <li key={f}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href="#membership-form" className={`btn plan-btn btn-${plan.popular ? "secondary" : "outline"}`}>
-                  Apply for this plan
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Form */}
-      <section className="section" id="membership-form">
+      {/* Application Form */}
+      <section className="section join-form-section" id="membership-form">
         <div className="container">
           <div className="membership-form-wrap">
             <div className="form-intro">
               <span className="badge badge-blue">Apply Now</span>
-              <h2 className="section-title">Membership Application</h2>
-              <p className="contact-intro">Fill in the form below and we'll get back to you within 3–5 working days with your membership confirmation.</p>
+              <h2 className="section-title">Join the Association</h2>
+              <p className="contact-intro">
+                Fill in the form below and our team will get back to you within 3–5 working days with your membership confirmation details.
+              </p>
               <div className="member-note">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                <p>Please complete the payment separately at the association office or via UPI after approval. Do not include payment details in this form.</p>
+                <p>Once we review your application, a team member will reach out to you directly with further details.</p>
+              </div>
+              <div className="member-insta-note">
+                <a href="https://www.instagram.com/attiguppe_residents/" target="_blank" rel="noopener noreferrer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                  Follow us @attiguppe_residents
+                </a>
               </div>
             </div>
 
@@ -167,13 +115,13 @@ export default function Membership() {
               {status === "success" && (
                 <div className="form-alert success">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
-                  Application submitted! We'll contact you within 3–5 working days.
+                  Application submitted! We will contact you within 3–5 working days.
                 </div>
               )}
               {status === "error" && (
                 <div className="form-alert error">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-                  Something went wrong. Please try again or contact us.
+                  Something went wrong. Please try again or contact us directly.
                 </div>
               )}
 
@@ -185,7 +133,7 @@ export default function Membership() {
                   </div>
                   <div className="form-group">
                     <label>House / Flat No. *</label>
-                    <input name="houseNo" value={form.houseNo} onChange={handleChange} placeholder="e.g. B-204" required />
+                    <input name="houseNo" value={form.houseNo} onChange={handleChange} placeholder="e.g. B-204, RP Layout" required />
                   </div>
                 </div>
                 <div className="form-row">
@@ -200,26 +148,26 @@ export default function Membership() {
                 </div>
                 <div className="form-group">
                   <label>Full Address *</label>
-                  <input name="address" value={form.address} onChange={handleChange} placeholder="Your full residential address" required />
+                  <input name="address" value={form.address} onChange={handleChange} placeholder="Your full residential address in Attiguppe" required />
                 </div>
                 <div className="form-row">
                   <div className="form-group">
                     <label>Occupation</label>
-                    <input name="occupation" value={form.occupation} onChange={handleChange} placeholder="e.g. Teacher, Engineer" />
+                    <input name="occupation" value={form.occupation} onChange={handleChange} placeholder="e.g. Teacher, Engineer, Business" />
                   </div>
                   <div className="form-group">
-                    <label>Preferred Plan *</label>
-                    <select name="plan" value={form.plan} onChange={handleChange} required>
-                      <option value="Annual">Annual – ₹500/year</option>
-                      <option value="Lifetime">Lifetime – ₹2,000 one-time</option>
-                      <option value="Senior Citizen">Senior Citizen – ₹200/year</option>
+                    <label>Member Type</label>
+                    <select name="memberType" value={form.memberType} onChange={handleChange}>
+                      <option value="General">General Member</option>
+                      <option value="Senior Citizen">Senior Citizen (60+)</option>
+                      <option value="Women's Wing">Women's Wing Member</option>
                     </select>
                   </div>
                 </div>
                 <div className="form-group form-checkbox-group">
                   <label className="checkbox-label">
                     <input type="checkbox" name="agree" checked={form.agree} onChange={handleChange} />
-                    <span>I confirm that I am a resident of the association area and agree to abide by the rules and regulations of the association. *</span>
+                    <span>I confirm that I am a resident of Attiguppe and agree to abide by the rules and regulations of the Attiguppe Residents Welfare Association. *</span>
                   </label>
                 </div>
                 <button type="submit" className="btn btn-primary submit-btn" disabled={status === "loading"}>

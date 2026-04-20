@@ -4,6 +4,7 @@ import './Contact.css'
 // ─── Google Apps Script Web App URL ──────────────────────────────────────────
 // After deploying the Apps Script (see AppScript.js), paste your deployment URL here
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID_HERE/exec'
+// Replace YOUR_DEPLOYMENT_ID_HERE with the deployed Apps Script URL after deploying AppScript.js
 // ─────────────────────────────────────────────────────────────────────────────
 
 const contactInfo = [
@@ -25,7 +26,7 @@ const contactInfo = [
       </svg>
     ),
     label: 'Phone',
-    value: '+91 00000 00000',
+    value: '+91 9986020447 (Dr. Chandana Pradeep, President)',
     color: 'green',
   },
   {
@@ -36,7 +37,7 @@ const contactInfo = [
       </svg>
     ),
     label: 'Email',
-    value: 'info@attiguppe.org',
+    value: 'info@treva.in',
     color: 'orange',
   },
   {
@@ -75,7 +76,7 @@ export default function Contact() {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, timestamp: new Date().toISOString() }),
+        body: JSON.stringify({ ...form, formType: 'Contact', timestamp: new Date().toISOString() }),
       })
       setStatus('success')
       setForm({ name: '', email: '', phone: '', subject: '', message: '' })

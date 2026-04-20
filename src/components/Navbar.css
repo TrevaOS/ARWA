@@ -36,6 +36,18 @@
   flex-shrink: 0;
 }
 
+.logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .logo-img {
+  transform: rotate(-5deg) scale(1.05);
+}
+
 .logo-circle {
   width: 42px;
   height: 42px;

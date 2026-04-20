@@ -1,109 +1,94 @@
 import { useState } from 'react'
 import './Events.css'
 
-
 const allEvents = [
   {
     id: 1,
-    status: 'upcoming',
-    title: 'Annual Community Gathering',
-    date: '15 April 2025',
+    status: 'past',
+    title: 'Saree Walkathon',
+    date: '29 March 2026',
     time: '5:00 PM onwards',
-    venue: 'Community Hall, Block A',
-    category: 'Community',
-    color: 'blue',
-    summary: 'Join us for our yearly get-together with cultural performances, food stalls, and exciting activities for all ages.',
-    description: `Our Annual Community Gathering is the most awaited event of the year. This year, we have planned a spectacular evening featuring traditional dance performances, live music, a community food festival showcasing dishes from families across our neighbourhood, and exciting games for children and adults alike.
+    venue: 'Attiguppe, Bengaluru',
+    category: 'Cultural',
+    color: 'orange',
+    summary: 'A unique walkathon celebrating the grace of the saree — bringing families and community members together to honour traditions, strengthen relationships, and promote togetherness.',
+    description: `The Saree Walkathon was a thoughtfully curated event that brought together families and community members to honour women, strengthen relationships, and promote togetherness.
 
-The event will also include a felicitation ceremony to honour residents who have made exceptional contributions to our community this year. Local vendors will be setting up stalls, making it a vibrant evening bazaar.
+Participants walked in their beautiful sarees, celebrating the elegance of tradition while bonding with neighbours and friends. The event was a vibrant display of community spirit, colour, and joy.
 
-Entry is free for all registered members. Non-members can register at the gate for a nominal fee. We request all residents to come in traditional attire to celebrate the spirit of our cultural diversity.`,
-    organiser: 'Cultural Committee',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800',
+Sponsors were offered prominent brand visibility through banners, stage backdrops, and event announcements, as well as public acknowledgement during the event and on association communication channels.`,
+    organiser: 'ARWA Cultural Committee',
+    image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=800',
   },
   {
     id: 2,
-    status: 'upcoming',
-    title: 'Cleanliness Drive',
-    date: '28 April 2025',
-    time: '7:00 AM to 10:00 AM',
-    venue: 'Starting from Central Park Gate',
-    category: 'Environment',
+    status: 'past',
+    title: "Women's Day Celebration 2026",
+    date: '8 March 2026',
+    time: 'Evening',
+    venue: 'Attiguppe, Bengaluru',
+    category: 'Community',
     color: 'green',
-    summary: 'A neighbourhood-wide initiative to keep our streets clean and green.',
-    description: `Join hundreds of your fellow residents in our biggest cleanliness drive of the year. Armed with gloves, bags, and community spirit, we will clean all major streets, lanes, and public spaces in our area.
+    summary: 'A heartfelt celebration honouring the women of Attiguppe with cultural programmes, games, and performances.',
+    description: `The Attiguppe Residents Welfare Association celebrated International Women's Day 2026 with a special event dedicated to the women of our community.
 
-This year we are also planting 200 saplings across the neighbourhood to mark Earth Day. Participants will receive a commemorative badge and a free sapling to take home.
+The event featured cultural performances, fun games, and recognition of women who have made significant contributions to the community. It was an evening of inspiration, laughter, and togetherness.
 
-All equipment will be provided. Just bring your enthusiasm! Light refreshments will be served to all volunteers post the drive. Children are encouraged to participate with parental supervision.`,
-    organiser: 'Environment Committee',
-    image: 'https://images.unsplash.com/photo-1559067096-49ebca3406aa?w=800',
+Women of all ages came together to celebrate their achievements and bond with fellow residents, making it one of the most memorable events of the year.`,
+    organiser: "ARWA Women's Committee",
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
   },
   {
     id: 3,
-    status: 'upcoming',
-    title: 'Health and Wellness Camp',
-    date: '10 May 2025',
-    time: '9:00 AM to 2:00 PM',
-    venue: 'Multi-purpose Ground, Block C',
+    status: 'past',
+    title: 'Free Health Camp',
+    date: '21 February 2026',
+    time: '11:00 AM to 4:00 PM',
+    venue: 'Government High School PU College, RP Layout, Vijayanagar, Bengaluru – 560040',
     category: 'Health',
-    color: 'orange',
-    summary: 'Free health check-ups, yoga sessions, and consultations with doctors.',
-    description: `In collaboration with City Medical College, we are organising a comprehensive health camp for all residents. Services include free blood pressure, blood sugar, and BMI checks; eye tests; dental screenings; and one-on-one consultations with specialist doctors.
+    color: 'blue',
+    summary: 'A comprehensive free health camp offering Eye Screening, Dental Check-up, Blood Donation, Cancer Screening, and much more.',
+    description: `The Attiguppe Residents Welfare Association organised a Free Health Camp on Saturday, 21st February 2026 at Government High School PU College, RP Layout, Vijayanagar, Bengaluru.
 
-A yoga session will be conducted from 9:00 AM to 10:00 AM by a certified yoga instructor. Nutrition counselling and mental health awareness sessions will also be held throughout the day.
+Health Services Available:
+• Eye Screening
+• Dental Check-up
+• Breast Cancer Screening
+• Homeopathic Consultation
+• General Physician & Gynaecological Consultation
+• Blood Donation
+• Diagnostic Check-up (BP, Random Blood Sugar, ECG)
+• Ayurvedic Consultation
 
-All services are completely free of charge for residents. Bring your health booklet or any prior medical records if available.`,
-    organiser: 'Health Committee',
+A sincere initiative towards a healthier and happier community. All residents were encouraged to attend and benefit.
+
+For more details, contact: Sri Arun — 9886041300 | Sri Manjunath — 7760002685`,
+    organiser: 'ARWA Health Committee',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
   },
   {
     id: 4,
     status: 'past',
-    title: 'Republic Day Celebration',
-    date: '26 January 2025',
-    time: '8:00 AM',
-    venue: 'Community Hall, Block A',
-    category: 'National',
-    color: 'blue',
-    summary: 'Flag hoisting ceremony and patriotic cultural programmes.',
-    description: `We celebrated Republic Day with great patriotic fervour. The flag hoisting was followed by renditions of patriotic songs, a march past by children, and speeches by our President and guest dignitaries from the local municipal council.
-
-The event concluded with distribution of sweets to all attendees and a special prize ceremony for winners of the Republic Day poster-making competition held the previous week.`,
-    organiser: 'Cultural Committee',
-    image: 'https://images.unsplash.com/photo-1601758177266-bc599de87707?w=800',
-  },
-  {
-    id: 5,
-    status: 'past',
-    title: 'Winter Sports Meet',
-    date: '18 December 2024',
-    time: '8:00 AM to 6:00 PM',
-    venue: 'Community Grounds',
-    category: 'Sports',
+    title: "Women's Wing Launch",
+    date: 'February 2026',
+    time: 'Community Event',
+    venue: 'Attiguppe, Bengaluru',
+    category: 'Community',
     color: 'green',
-    summary: 'Inter-block cricket, badminton, carrom, and chess competitions.',
-    description: `Our annual sports meet witnessed fierce but friendly competition between teams from all six blocks of our neighbourhood. Over 300 participants registered across different sports categories.
+    summary: 'ARWA proudly announces the formation of the Women\'s Wing — a platform for women to lead, share and grow together.',
+    description: `The Attiguppe Residents Welfare Association is proud to announce the formation of its Women's Wing — a dedicated platform for women to Lead, Share, and Grow Together.
 
-Block D clinched the overall championship trophy while Block B won the spirit award. Medals and certificates were distributed to all participants. The event was followed by a grand dinner for all players and their families.`,
-    organiser: 'Sports Committee',
-    image: 'https://images.unsplash.com/photo-1521537634581-0dced2fee2ef?w=800',
-  },
-  {
-    id: 6,
-    status: 'past',
-    title: 'Diwali Mela',
-    date: '1 November 2024',
-    time: '6:00 PM onwards',
-    venue: 'Central Park',
-    category: 'Festival',
-    color: 'orange',
-    summary: 'A grand festival of lights with fireworks, food, and cultural events.',
-    description: `This year's Diwali Mela was a spectacular celebration attended by over 2000 residents. The park was lit up with thousands of diyas and decorative lights, creating a magical atmosphere.
+Pillars of the Women's Wing:
+• Community & Cultural Activities
+• Safety & Support Initiatives
+• Health & Wellness Programs
+• Skill Development & Empowerment
 
-Highlights included a rangoli competition, folk dance performances, food stalls by resident families, and a stunning fireworks display at 9:00 PM. The event raised funds for the community welfare fund through a charity auction.`,
-    organiser: 'Cultural Committee',
-    image: 'https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=800',
+The Women's Wing aims to build a stronger and more vibrant community by empowering the women of Attiguppe. All interested women residents are welcome and encouraged to join.
+
+Together, let us build a stronger and vibrant community!`,
+    organiser: 'ARWA Executive Committee',
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800',
   },
 ]
 
@@ -122,7 +107,7 @@ export default function Events() {
         <div className="container">
           <span className="badge badge-green">Stay Connected</span>
           <h1>Events</h1>
-          <p>Upcoming and past events from our community calendar.</p>
+          <p>Community events and activities organised by ARWA for the residents of Attiguppe.</p>
         </div>
       </section>
 
@@ -154,6 +139,9 @@ export default function Events() {
                   <img src={event.image} alt={event.title} loading="lazy" />
                   {event.status === 'upcoming' && (
                     <span className="ev-upcoming-badge">Upcoming</span>
+                  )}
+                  {event.status === 'past' && (
+                    <span className="ev-past-badge">Completed</span>
                   )}
                 </div>
                 <div className="elc-body">
@@ -193,6 +181,12 @@ export default function Events() {
               </div>
             ))}
           </div>
+
+          {filtered.length === 0 && (
+            <div className="events-empty">
+              <p>No {filter} events at the moment. Check back soon!</p>
+            </div>
+          )}
         </div>
       </section>
 

@@ -287,3 +287,28 @@
 @media (max-width: 600px) {
   .benefits-grid { grid-template-columns: 1fr; }
 }
+
+.join-form-section { background: var(--bg-soft); }
+
+.member-insta-note {
+  margin-top: 16px;
+}
+
+.member-insta-note a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--calm-blue);
+  text-decoration: none;
+  padding: 8px 16px;
+  background: var(--blue-light);
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+
+.member-insta-note a:hover {
+  background: var(--calm-blue);
+  color: white;
+}

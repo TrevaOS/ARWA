@@ -69,6 +69,23 @@
   font-size: 1rem;
 }
 
+.gallery-insta-note {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.gallery-insta-note a {
+  color: var(--calm-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gallery-insta-note a:hover {
+  text-decoration: underline;
+}
+
 /* Lightbox */
 .lightbox-overlay {
   position: fixed;

@@ -40,11 +40,19 @@
   flex-shrink: 0;
 }
 
-.footer-logo-circle span {
+.footer-logo-circle span,
+.footer-logo-fallback {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 0.85rem;
   color: white;
+}
+
+.footer-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .footer-logo-main {
