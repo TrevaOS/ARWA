@@ -15,7 +15,7 @@ export default function About() {
         <div className="container">
           <span className="badge badge-green">Our Story</span>
           <h1>About Our Association</h1>
-          <p>By the people, for the people, with the people — serving the residents of Attiguppe, Bengaluru.</p>
+          <p>By the people, for the people, with the people serving the residents of Attiguppe, Bengaluru.</p>
         </div>
       </section>
 
@@ -33,7 +33,7 @@ export default function About() {
               From organising free health camps and cultural festivals to launching the Women's Wing, ARWA actively engages with residents to address civic issues, celebrate milestones, and foster lasting community bonds.
             </p>
             <p>
-              Our structure is democratic and transparent. Every decision is made collectively, every rupee is accounted for, and every voice matters — because together, we build a healthier, happier, and responsible neighbourhood.
+              Our structure is democratic and transparent. Every decision is made collectively, every rupee is accounted for, and every voice matters because together, we build a healthier, happier, and responsible neighbourhood.
             </p>
           </div>
           <div className="story-visual">
@@ -109,7 +109,7 @@ export default function About() {
               <span className="ww-about-emoji">👩‍👩‍👧‍👦</span>
               <div>
                 <h3>Empower · Inspire · Connect</h3>
-                <p>ARWA has recently launched its Women's Wing — a dedicated platform for the women of Attiguppe to come together, lead community initiatives, and support each other.</p>
+                <p>ARWA has recently launched its Women's Wing a dedicated platform for the women of Attiguppe to come together, lead community initiatives, and support each other.</p>
               </div>
             </div>
             <div className="ww-about-pillars">
@@ -165,13 +165,13 @@ export default function About() {
               <div className="about-vm-icon">🎯</div>
               <h3>Our Mission</h3>
               <ul className="about-mission-list">
-                <li>Community Unity — encourage cooperation &amp; active participation</li>
-                <li>Effective Representation — bridge between residents &amp; authorities</li>
-                <li>Collective Voice — safeguard residents' rights &amp; welfare</li>
-                <li>Clean &amp; Green Living — promote cleanliness &amp; sustainability</li>
-                <li>Community Engagement — organise cultural &amp; social activities</li>
-                <li>Social Responsibility — support seniors &amp; vulnerable groups</li>
-                <li>Awareness &amp; Safety — promote civic &amp; environmental awareness</li>
+                <li>Community Unity encourage cooperation &amp; active participation</li>
+                <li>Effective Representation bridge between residents &amp; authorities</li>
+                <li>Collective Voice safeguard residents' rights &amp; welfare</li>
+                <li>Clean &amp; Green Living promote cleanliness &amp; sustainability</li>
+                <li>Community Engagement organise cultural &amp; social activities</li>
+                <li>Social Responsibility support seniors &amp; vulnerable groups</li>
+                <li>Awareness &amp; Safety promote civic &amp; environmental awareness</li>
               </ul>
             </div>
           </div>

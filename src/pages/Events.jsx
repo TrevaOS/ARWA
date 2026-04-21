@@ -11,7 +11,7 @@ const allEvents = [
     venue: 'Attiguppe, Bengaluru',
     category: 'Cultural',
     color: 'orange',
-    summary: 'A unique walkathon celebrating the grace of the saree — bringing families and community members together to honour traditions, strengthen relationships, and promote togetherness.',
+    summary: 'A unique walkathon celebrating the grace of the saree bringing families and community members together to honour traditions, strengthen relationships, and promote togetherness.',
     description: `The Saree Walkathon was a thoughtfully curated event that brought together families and community members to honour women, strengthen relationships, and promote togetherness.
 
 Participants walked in their beautiful sarees, celebrating the elegance of tradition while bonding with neighbours and friends. The event was a vibrant display of community spirit, colour, and joy.
@@ -62,7 +62,7 @@ Health Services Available:
 
 A sincere initiative towards a healthier and happier community. All residents were encouraged to attend and benefit.
 
-For more details, contact: Sri Arun — 9886041300 | Sri Manjunath — 7760002685`,
+For more details, contact: Sri Arun 9886041300 | Sri Manjunath 7760002685`,
     organiser: 'ARWA Health Committee',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
   },
@@ -75,8 +75,8 @@ For more details, contact: Sri Arun — 9886041300 | Sri Manjunath — 776000268
     venue: 'Attiguppe, Bengaluru',
     category: 'Community',
     color: 'green',
-    summary: 'ARWA proudly announces the formation of the Women\'s Wing — a platform for women to lead, share and grow together.',
-    description: `The Attiguppe Residents Welfare Association is proud to announce the formation of its Women's Wing — a dedicated platform for women to Lead, Share, and Grow Together.
+    summary: 'ARWA proudly announces the formation of the Women\'s Wing a platform for women to lead, share and grow together.',
+    description: `The Attiguppe Residents Welfare Association is proud to announce the formation of its Women's Wing a dedicated platform for women to Lead, Share, and Grow Together.
 
 Pillars of the Women's Wing:
 • Community & Cultural Activities

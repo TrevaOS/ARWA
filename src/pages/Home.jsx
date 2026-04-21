@@ -22,7 +22,7 @@ const pastEvents = [
     month: 'MAR',
     day: '08',
     title: "Women's Day Celebration",
-    desc: 'A special celebration honouring the women of Attiguppe — cultural programmes, games, and a heartfelt gathering to celebrate womanhood and community spirit.',
+    desc: 'A special celebration honouring the women of Attiguppe with cultural programmes, games, and a heartfelt community gathering.',
     tag: 'Community',
     color: 'green',
     year: '2026',
@@ -33,7 +33,7 @@ const pastEvents = [
     month: 'MAR',
     day: '29',
     title: 'Saree Walkathon',
-    desc: 'A unique walkathon celebrating the grace of the saree — bringing families and community members together to honor traditions, strengthen relationships, and promote togetherness.',
+    desc: 'A unique walkathon celebrating the grace of the saree and bringing families together to honour tradition and promote togetherness.',
     tag: 'Cultural',
     color: 'orange',
     year: '2026',
@@ -58,13 +58,13 @@ const galleryImages = [
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800',
-    alt: 'Community gathering',
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Vidhana_Soudha%2C_Bangalore.jpg/1280px-Vidhana_Soudha%2C_Bangalore.jpg',
+    alt: 'Vidhana Soudha, Bengaluru',
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
-    alt: 'Free Health Camp',
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/KR_Market_Bangalore.jpg/1280px-KR_Market_Bangalore.jpg',
+    alt: 'KR Market, Bengaluru',
   },
 ]
 
@@ -91,7 +91,7 @@ const nearbyPlaces = [
     id: 2,
     name: 'Lakshmi Narasimha Temple',
     category: 'Heritage',
-    desc: 'One of the oldest temples in the area — the family deity of the local shepherd community, renovated in the 17th century.',
+    desc: 'One of the oldest temples in the area and the family deity of the local shepherd community.',
     detail: 'The iconic Lakshmi Narasimha Swami Temple is a cornerstone of Attiguppe\'s cultural identity. Believed to be established by Rishi Durvasa, the temple was renovated in the 17th century and remains the spiritual heart of the community.',
     distance: '0.4 km',
     color: 'orange',
@@ -108,10 +108,10 @@ const nearbyPlaces = [
     name: 'Government Model High School',
     category: 'Education',
     desc: 'A well-established government school in Attiguppe serving the local community for decades.',
-    detail: 'Government Model High School, Attiguppe — also known as Government High School PU College, RP Layout, Vijayanagar — has been educating the local community for generations. Venue for the Free Health Camp organised by ARWA.',
+    detail: 'Government Model High School, Attiguppe also known as Government High School PU College, RP Layout, Vijayanagar has been educating the local community for generations. Venue for the Free Health Camp organised by ARWA.',
     distance: '0.6 km',
     color: 'green',
-    frontImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800',
+    frontImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Vijayanagar%2C_Bangalore.jpg/1280px-Vijayanagar%2C_Bangalore.jpg',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
@@ -127,7 +127,7 @@ const nearbyPlaces = [
     detail: 'The vibrant Vijayanagar Market is one of the busiest commercial hubs in west Bengaluru, offering everything from fresh vegetables and fruits to clothing, hardware, and street food. Easily accessible from Attiguppe.',
     distance: '0.8 km',
     color: 'red',
-    frontImg: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800',
+    frontImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/KR_Market_Bangalore.jpg/1280px-KR_Market_Bangalore.jpg',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="9" cy="21" r="1"/>
@@ -148,13 +148,13 @@ const historyHighlights = [
   {
     year: '15th–16th C',
     title: 'Vijayanagara Roots',
-    desc: 'The name "Attiguppe" traces back to the Vijayanagara Empire. "Atti" (paddy) + "gupe" (heap) — a testament to its rich agricultural origins.',
+    desc: 'The name Attiguppe traces back to the Vijayanagara Empire. Atti means paddy and Gupe means heap, reflecting its agricultural roots.',
     color: 'orange',
   },
   {
     year: '17th C',
     title: 'Lakshmi Narasimha Temple',
-    desc: 'The iconic Lakshmi Narasimha Temple, family deity of the local shepherd community, was renovated — becoming a cornerstone of the area\'s cultural identity.',
+    desc: 'The Lakshmi Narasimha Temple was renovated and became a cornerstone of Attiguppe cultural identity.',
     color: 'green',
   },
   {
@@ -202,6 +202,7 @@ export default function Home() {
   const { idx, go } = useCarousel(galleryImages.length)
   const [showInternship, setShowInternship] = useState(false)
   const [flippedCard, setFlippedCard] = useState(null)
+  const touchStarted = useRef(false)
 
   useEffect(() => {
     const timer = setTimeout(() => setShowInternship(true), 3000)
@@ -229,20 +230,36 @@ export default function Home() {
               </p>
               <div className="internship-popup-gains">
                 <div className="intern-gain-item">
-                  <span className="intern-gain-icon">🌱</span>
+                  <span className="intern-gain-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 22V10" />
+                      <path d="M6 14c0-4 2-6 6-8 4 2 6 4 6 8" />
+                    </svg>
+                  </span>
                   <span>Practical exposure to community challenges</span>
                 </div>
                 <div className="intern-gain-item">
-                  <span className="intern-gain-icon">🤝</span>
+                  <span className="intern-gain-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M8 12l3 3 5-5" />
+                      <path d="M4 12a8 8 0 0 1 16 0" />
+                    </svg>
+                  </span>
                   <span>Work closely with community leaders</span>
                 </div>
                 <div className="intern-gain-item">
-                  <span className="intern-gain-icon">💡</span>
+                  <span className="intern-gain-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="9" r="4" />
+                      <path d="M10 17h4" />
+                      <path d="M9 21h6" />
+                    </svg>
+                  </span>
                   <span>Develop leadership &amp; communication skills</span>
                 </div>
               </div>
               <p className="internship-popup-contact">
-                <strong>Dr. Chandana Pradeep</strong> — President<br />
+                <strong>Dr. Chandana Pradeep</strong> President<br />
                 <a href="tel:+919986020447">+91 9986020447</a>
               </p>
               <div className="internship-popup-actions">
@@ -259,11 +276,9 @@ export default function Home() {
         <div className="hero-video-wrapper">
           <img
             className="hero-bg-img"
-            src="https://bengaluru.mapunity.com/static/media/bangalore_map_placeholder.jpg"
+            src="https://assets-news.housing.com/news/wp-content/uploads/2020/12/01163300/Bengaluru%E2%80%99s-Vidhana-Soudha-could-be-worth-over-Rs-3900-crores-FB-1200x700-compressed.jpg"
             alt="Attiguppe neighbourhood"
-            onError={e => {
-              e.target.src = 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1600'
-            }}
+            onError={e => { e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Vidhana_Soudha%2C_Bangalore.jpg/1280px-Vidhana_Soudha%2C_Bangalore.jpg' }}
           />
           <div className="hero-overlay" />
         </div>
@@ -282,7 +297,7 @@ export default function Home() {
             <span className="hero-accent">Your Community</span>
           </h1>
           <p className="hero-sub">
-            Working together to build a cleaner, safer, and more vibrant neighbourhood for every resident of Attiguppe — By the people, for the people, with the people.
+            Working together to build a cleaner, safer, and more vibrant neighbourhood for every resident of Attiguppe. By the people, for the people, and with the people.
           </p>
           <div className="hero-actions hero-actions-center">
             <Link to="/about" className="btn btn-primary">Discover More</Link>
@@ -358,20 +373,30 @@ export default function Home() {
           </div>
           <div className="mission-grid">
             <div className="mission-card mission-vision">
-              <div className="mission-icon">🌟</div>
+              <div className="mission-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="m12 2 2.8 5.7L21 8.6l-4.5 4.4 1.1 6.2L12 16.8 6.4 19.2l1.1-6.2L3 8.6l6.2-.9L12 2z" />
+                </svg>
+              </div>
               <h3>Our Vision</h3>
               <p>To build a well-organised, safe, clean, and inclusive neighbourhood where every resident enjoys overall well-being, mutual respect, and a strong sense of belonging, while fostering sustainable living and social harmony.</p>
             </div>
             <div className="mission-card mission-mission">
-              <div className="mission-icon">🎯</div>
+              <div className="mission-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="12" cy="12" r="1.5" />
+                </svg>
+              </div>
               <h3>Our Mission</h3>
               <ul className="mission-list">
-                <li><span>🤝</span> Community Unity — encourage cooperation &amp; active participation</li>
-                <li><span>🏛️</span> Effective Representation — bridge between residents &amp; authorities</li>
-                <li><span>📢</span> Collective Voice — safeguard residents' rights &amp; welfare</li>
-                <li><span>🌿</span> Clean &amp; Green Living — promote cleanliness &amp; sustainability</li>
-                <li><span>🎭</span> Community Engagement — organise cultural &amp; social activities</li>
-                <li><span>❤️</span> Social Responsibility — support seniors &amp; vulnerable groups</li>
+                <li><span>01</span> Community unity through active resident participation.</li>
+                <li><span>02</span> Effective representation between residents and authorities.</li>
+                <li><span>03</span> Collective voice to protect resident rights and welfare.</li>
+                <li><span>04</span> Clean and green living through sustainable habits.</li>
+                <li><span>05</span> Cultural and social engagement across all groups.</li>
+                <li><span>06</span> Social responsibility for seniors and vulnerable residents.</li>
               </ul>
             </div>
           </div>
@@ -483,7 +508,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── NEARBY PLACES — FLIP CARDS ── */}
+      {/* ── NEARBY PLACES FLIP CARDS ── */}
       <section className="section places-section">
         <div className="container">
           <div className="section-head">
@@ -491,7 +516,7 @@ export default function Home() {
               <span className="badge badge-blue">Around You</span>
               <div className="divider" />
               <h2 className="section-title">Nearby Attractions</h2>
-              <p className="section-subtitle">Hover to explore what Attiguppe has to offer.</p>
+              <p className="section-subtitle">Tap on mobile or hover on desktop to explore what Attiguppe has to offer.</p>
             </div>
             <Link to="/places" className="btn btn-outline">See All Places</Link>
           </div>
@@ -501,7 +526,17 @@ export default function Home() {
               <div
                 key={place.id}
                 className={`flip-card${flippedCard === place.id ? ' flipped' : ''}`}
-                onClick={() => setFlippedCard(flippedCard === place.id ? null : place.id)}
+                onClick={() => {
+                  if (touchStarted.current) {
+                    touchStarted.current = false
+                    return
+                  }
+                  setFlippedCard(flippedCard === place.id ? null : place.id)
+                }}
+                onTouchStart={() => {
+                  touchStarted.current = true
+                  setFlippedCard(flippedCard === place.id ? null : place.id)
+                }}
                 onMouseEnter={() => setFlippedCard(place.id)}
                 onMouseLeave={() => setFlippedCard(null)}
               >
@@ -540,7 +575,7 @@ export default function Home() {
             <div className="ww-text">
               <span className="badge badge-green">Newly Launched</span>
               <h2>Women's Wing</h2>
-              <p>ARWA proudly announces the formation of the <strong>Women's Wing</strong> — a platform for women to lead, share &amp; grow together. Empower | Inspire | Connect</p>
+              <p>ARWA proudly announces the formation of the <strong>Women's Wing</strong>, a platform for women to lead, share, and grow together. Empower. Inspire. Connect.</p>
               <ul className="ww-pillars">
                 <li>Community &amp; Cultural Activities</li>
                 <li>Safety &amp; Support Initiatives</li>
@@ -552,7 +587,14 @@ export default function Home() {
             </div>
             <div className="ww-visual">
               <div className="ww-icon-wrap">
-                <span className="ww-big-icon">👩‍👩‍👧‍👦</span>
+                <span className="ww-big-icon" aria-hidden="true">
+                  <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <circle cx="7" cy="7" r="2.5" />
+                    <circle cx="17" cy="7" r="2.5" />
+                    <path d="M3 20v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" />
+                    <path d="M13 20v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" />
+                  </svg>
+                </span>
                 <div className="ww-badge">New</div>
               </div>
             </div>
@@ -583,7 +625,7 @@ export default function Home() {
               </svg>
               @attiguppe_residents
             </a>
-            <p className="insta-handle-note">51+ followers · 9 posts · Events, health camps, community updates</p>
+            <p className="insta-handle-note">51+ followers | 9 posts | Events, health camps, and community updates</p>
           </div>
         </div>
       </section>

@@ -15,11 +15,11 @@ const blogs = [
     readTime: "4 min read",
     color: "orange",
     initials: "MS",
-    content: `With rising temperatures and longer days, children spend more time outdoors during summer. While this is wonderful for their physical and social development, it also brings certain risks that parents should be aware of.\n\nAlways ensure children apply sunscreen with SPF 30 or higher before going out. Reapply every two hours, especially after swimming or sweating. Dehydration is a common issue — make sure children drink water regularly, even when they do not feel thirsty.\n\nSupervise outdoor activities during peak heat hours (11 AM – 4 PM) and encourage play in shaded areas. Lightweight, light-coloured clothing helps keep the body cool. Watch for signs of heat exhaustion: excessive sweating, weakness, dizziness, or nausea.\n\nOur association has set up a water station near the park entrance. All residents are welcome to use it.`,
+    content: `With rising temperatures and longer days, children spend more time outdoors during summer. While this is wonderful for their physical and social development, it also brings certain risks that parents should be aware of.\n\nAlways ensure children apply sunscreen with SPF 30 or higher before going out. Reapply every two hours, especially after swimming or sweating. Dehydration is a common issue make sure children drink water regularly, even when they do not feel thirsty.\n\nSupervise outdoor activities during peak heat hours (11 AM – 4 PM) and encourage play in shaded areas. Lightweight, light-coloured clothing helps keep the body cool. Watch for signs of heat exhaustion: excessive sweating, weakness, dizziness, or nausea.\n\nOur association has set up a water station near the park entrance. All residents are welcome to use it.`,
   },
   {
     id: 2,
-    title: "New Street Lights Installed on Block C — Thank You Committee!",
+    title: "New Street Lights Installed on Block C Thank You Committee!",
     excerpt: "After months of persistent follow-ups with the municipal corporation, we are happy to announce that 18 new LED street lights have been installed on Block C.",
     category: "Announcements",
     author: "Rahul Verma",
@@ -41,7 +41,7 @@ const blogs = [
     readTime: "5 min read",
     color: "green",
     initials: "PN",
-    content: `Our door-to-door organic waste composting drive has had a remarkable start. Since its launch on April 1st, we have collected and composted over 200 kg of kitchen and garden waste — preventing it from ending up in the municipal landfill.\n\nThe compost produced is being used to fertilise the plants in our community garden and the saplings being prepared for this year's tree plantation drive.\n\nHow you can participate: Place your wet/organic waste (vegetable peels, fruit scraps, tea leaves, and garden trimmings) in the green bin provided. Our collection volunteers will pick them up every Tuesday and Friday morning between 7 AM and 9 AM.\n\nDo not put cooked food, dairy products, or meat scraps in the bin as these attract pests.\n\nFamilies that have consistently participated for six months will receive a bag of ready-made compost as a thank-you gift.`,
+    content: `Our door-to-door organic waste composting drive has had a remarkable start. Since its launch on April 1st, we have collected and composted over 200 kg of kitchen and garden waste preventing it from ending up in the municipal landfill.\n\nThe compost produced is being used to fertilise the plants in our community garden and the saplings being prepared for this year's tree plantation drive.\n\nHow you can participate: Place your wet/organic waste (vegetable peels, fruit scraps, tea leaves, and garden trimmings) in the green bin provided. Our collection volunteers will pick them up every Tuesday and Friday morning between 7 AM and 9 AM.\n\nDo not put cooked food, dairy products, or meat scraps in the bin as these attract pests.\n\nFamilies that have consistently participated for six months will receive a bag of ready-made compost as a thank-you gift.`,
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ const blogs = [
   },
   {
     id: 5,
-    title: "Water Supply Disruption — What You Need to Know",
+    title: "Water Supply Disruption What You Need to Know",
     excerpt: "The municipal corporation has scheduled maintenance work that will disrupt water supply in our area. Here are the timings and what you should do to prepare.",
     category: "Maintenance",
     author: "Arun Krishnan",

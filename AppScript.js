@@ -1,6 +1,6 @@
 /**
  * Attiguppe Residents Welfare Association
- * Google Apps Script — handles Contact & Join Us form submissions
+ * Google Apps Script handles Contact & Join Us form submissions
  *
  * SETUP INSTRUCTIONS:
  * 1. Open your Google Sheet:
@@ -21,7 +21,7 @@
  * - Join Us / Membership form submissions go to sheet "JoinUs"
  * - Every submission fires a confirmation email to the person + admin notification
  * - Admin notification goes to: tech@treva.in (To), ullas@treva.in & info@treva.in (BCC)
- * - A "Mail Status" column records: SENT / FAILED — <reason>
+ * - A "Mail Status" column records: SENT / FAILED <reason>
  * - A daily trigger retries any failed emails
  */
 
@@ -53,7 +53,7 @@ function doPost(e) {
       mailReason = mailErr.toString();
     }
 
-    var row = buildRow(data, type, mailStatus + (mailReason ? ' — ' + mailReason : ''));
+    var row = buildRow(data, type, mailStatus + (mailReason ? ' ' + mailReason : ''));
     sheet.appendRow(row);
 
     return ContentService
@@ -115,7 +115,7 @@ function sendEmails(data, type) {
         to:      userEmail,
         replyTo: ADMIN_EMAIL,
         name:    SENDER_NAME,
-        subject: 'We received your message — Attiguppe RWA',
+        subject: 'We received your message Attiguppe RWA',
         htmlBody: contactConfirmationHtml(userName, data),
       });
     }
@@ -133,7 +133,7 @@ function sendEmails(data, type) {
         to:      userEmail,
         replyTo: ADMIN_EMAIL,
         name:    SENDER_NAME,
-        subject: 'Membership Application Received — Attiguppe RWA',
+        subject: 'Membership Application Received Attiguppe RWA',
         htmlBody: membershipConfirmationHtml(userName, data),
       });
     }
@@ -185,7 +185,7 @@ function retryUnsentEmails() {
           sendEmails(obj, sheetName);
           sheet.getRange(i + 1, mailColIdx + 1).setValue('SENT (retried)');
         } catch (err) {
-          sheet.getRange(i + 1, mailColIdx + 1).setValue('FAILED — ' + err.toString());
+          sheet.getRange(i + 1, mailColIdx + 1).setValue('FAILED ' + err.toString());
         }
       }
     }
@@ -214,7 +214,7 @@ function contactConfirmationHtml(name, d) {
 
 function adminContactHtml(d) {
   return '<div style="font-family:sans-serif;max-width:600px">'
-    + '<h2 style="color:#1a2a3a">New Contact Form Submission — ARWA Website</h2>'
+    + '<h2 style="color:#1a2a3a">New Contact Form Submission ARWA Website</h2>'
     + '<table style="width:100%;border-collapse:collapse">'
     + '<tr><td style="padding:8px;background:#f4f9fd;font-weight:bold;width:30%">Name</td><td style="padding:8px;border:1px solid #e5e5e5">' + (d.name || '–') + '</td></tr>'
     + '<tr><td style="padding:8px;background:#f4f9fd;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #e5e5e5">' + (d.email || '–') + '</td></tr>'
@@ -246,7 +246,7 @@ function membershipConfirmationHtml(name, d) {
 
 function adminMembershipHtml(d) {
   return '<div style="font-family:sans-serif;max-width:600px">'
-    + '<h2 style="color:#1a2a3a">New Membership Application — ARWA Website</h2>'
+    + '<h2 style="color:#1a2a3a">New Membership Application ARWA Website</h2>'
     + '<table style="width:100%;border-collapse:collapse">'
     + '<tr><td style="padding:8px;background:#f4f9fd;font-weight:bold;width:35%">Full Name</td><td style="padding:8px;border:1px solid #e5e5e5">' + (d.fullName || '–') + '</td></tr>'
     + '<tr><td style="padding:8px;background:#f4f9fd;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #e5e5e5">' + (d.email || '–') + '</td></tr>'

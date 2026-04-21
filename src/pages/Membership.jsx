@@ -13,11 +13,11 @@ const benefits = [
 ];
 
 const faqs = [
-  { q: "Who can become a member?", a: "Any resident of Attiguppe — whether you own or rent your home — is eligible to become a member of ARWA." },
+  { q: "Who can become a member?", a: "Any resident of Attiguppe whether you own or rent your home is eligible to become a member of ARWA." },
   { q: "What happens after I submit this form?", a: "Our team will review your application and get back to you within 3–5 working days with details about membership confirmation and the next steps." },
   { q: "Is there a membership fee?", a: "Membership fee details will be communicated to you by our team after reviewing your application." },
   { q: "How long does approval take?", a: "After submitting the form, membership is typically confirmed within 3–5 working days. You'll receive a confirmation via the contact details you provide." },
-  { q: "What is the Women's Wing?", a: "The Women's Wing is a newly launched platform for women residents to lead, share, and grow together — through community activities, health programs, safety initiatives, and skill development." },
+  { q: "What is the Women's Wing?", a: "The Women's Wing is a newly launched platform for women residents to lead, share, and grow together through community activities, health programs, safety initiatives, and skill development." },
 ];
 
 export default function Membership() {

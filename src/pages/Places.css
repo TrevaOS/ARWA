@@ -82,8 +82,9 @@
 .pc-orange .place-icon-wrap { background: rgba(242,179,108,0.15); }
 .pc-red .place-icon-wrap { background: rgba(239,118,122,0.12); }
 
-.place-emoji {
-  font-size: 2.2rem;
+.place-icon {
+  color: var(--text-dark);
+  line-height: 0;
 }
 
 .place-cat-badge {
@@ -193,4 +194,9 @@
 
 @media (max-width: 600px) {
   .places-grid { grid-template-columns: 1fr; }
+}
+
+.place-empty-icon {
+  color: var(--text-light);
+  line-height: 0;
 }
