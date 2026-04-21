@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="notfound-container">
         <div className="notfound-visual">
           <span className="notfound-big">404</span>
-          <div className="notfound-house">🏘️</div>
+          <div className="notfound-house"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 10l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
         </div>
         <h1 className="notfound-title">Page Not Found</h1>
         <p className="notfound-desc">

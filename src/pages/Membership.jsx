@@ -1,22 +1,22 @@
 import { useState } from "react";
-import './Membership.css';
+import "./Membership.css";
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID_HERE/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw3AKBKyRzQ_48DQYaEgMuWXe13yPruwFxgkfYPnTap6gfKBBePTCyqs7WPKOjqKFz3/exec";
 
 const benefits = [
-  { icon: "🗳️", color: "blue", title: "Voting Rights", desc: "Vote in all general body meetings and have a say in association decisions." },
-  { icon: "📢", color: "green", title: "Event Invitations", desc: "Priority invitations to all community events, festivals, and workshops." },
-  { icon: "🛡️", color: "orange", title: "Grievance Support", desc: "We take up your complaints with authorities and ensure timely resolution." },
-  { icon: "📰", color: "blue", title: "Newsletter Access", desc: "Receive our monthly digital newsletter with updates, tips, and notices." },
-  { icon: "🤝", color: "green", title: "Community Network", desc: "Connect with like-minded residents and build lasting neighbourhood relationships." },
-  { icon: "🏅", color: "orange", title: "Member Recognition", desc: "Get acknowledged for your contributions to the community." },
+  { icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>), color: "blue", title: "Voting Rights", desc: "Vote in all general body meetings and have a say in association decisions." },
+  { icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 11h18"/><path d="M6 7h12"/><path d="M8 15h8"/><path d="M10 19h4"/></svg>), color: "green", title: "Event Invitations", desc: "Priority invitations to all community events, festivals, and workshops." },
+  { icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>), color: "orange", title: "Grievance Support", desc: "We take up your complaints with authorities and ensure timely resolution." },
+  { icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 5h16v14H4z"/><path d="M4 9h16"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>), color: "blue", title: "Newsletter Access", desc: "Receive our monthly digital newsletter with updates, tips, and notices." },
+  { icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 20a5 5 0 0 1 10 0"/><path d="M11 20a5 5 0 0 1 10 0"/></svg>), color: "green", title: "Community Network", desc: "Connect with like-minded residents and build lasting neighbourhood relationships." },
+  { icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="4"/><path d="M8 14h8"/><path d="M10 14v6"/><path d="M14 14v6"/></svg>), color: "orange", title: "Member Recognition", desc: "Get acknowledged for your contributions to the community." },
 ];
 
 const faqs = [
-  { q: "Who can become a member?", a: "Any resident of Attiguppe whether you own or rent your home is eligible to become a member of ARWA." },
-  { q: "What happens after I submit this form?", a: "Our team will review your application and get back to you within 3–5 working days with details about membership confirmation and the next steps." },
+  { q: "Who can become a member?", a: "Any resident of Attiguppe, whether you own or rent your home, is eligible to become a member of ARWA." },
+  { q: "What happens after I submit this form?", a: "Our team will review your application and get back to you within 3-5 working days with membership confirmation and next steps." },
   { q: "Is there a membership fee?", a: "Membership fee details will be communicated to you by our team after reviewing your application." },
-  { q: "How long does approval take?", a: "After submitting the form, membership is typically confirmed within 3–5 working days. You'll receive a confirmation via the contact details you provide." },
+  { q: "How long does approval take?", a: "After submitting the form, membership is typically confirmed within 3-5 working days. You will receive confirmation through your contact details." },
   { q: "What is the Women's Wing?", a: "The Women's Wing is a newly launched platform for women residents to lead, share, and grow together through community activities, health programs, safety initiatives, and skill development." },
 ];
 
@@ -53,22 +53,20 @@ export default function Membership() {
 
   return (
     <main className="membership-page">
-      {/* Hero */}
       <section className="page-hero">
         <div className="container">
           <span className="badge badge-blue">Join Us</span>
           <h1>Become a Member</h1>
-          <p>Be part of a stronger, more connected community in Attiguppe</p>
+          <p>Be part of a stronger, more connected community in Attiguppe.</p>
         </div>
       </section>
 
-      {/* Benefits */}
       <section className="section">
         <div className="container">
           <div className="text-center mb-section">
             <span className="badge badge-green">Why Join?</span>
             <h2 className="section-title">Member Benefits</h2>
-            <p className="section-subtitle">Here is what you get when you join the Attiguppe Residents Welfare Association</p>
+            <p className="section-subtitle">Here is what you get when you join the Attiguppe Residents Welfare Association.</p>
           </div>
           <div className="benefits-grid">
             {benefits.map((b) => (
@@ -82,7 +80,6 @@ export default function Membership() {
         </div>
       </section>
 
-      {/* Application Form */}
       <section className="section join-form-section" id="membership-form">
         <div className="container">
           <div className="membership-form-wrap">
@@ -90,7 +87,7 @@ export default function Membership() {
               <span className="badge badge-blue">Apply Now</span>
               <h2 className="section-title">Join the Association</h2>
               <p className="contact-intro">
-                Fill in the form below and our team will get back to you within 3–5 working days with your membership confirmation details.
+                Fill in the form below and our team will get back to you within 3-5 working days with your membership confirmation details.
               </p>
               <div className="member-note">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
@@ -110,12 +107,12 @@ export default function Membership() {
 
             <div className="form-card">
               <h3 className="form-title">Your Details</h3>
-              <p className="form-subtitle">All fields marked * are required</p>
+              <p className="form-subtitle">All fields marked * are required.</p>
 
               {status === "success" && (
                 <div className="form-alert success">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
-                  Application submitted! We will contact you within 3–5 working days.
+                  Application submitted. We will contact you within 3-5 working days.
                 </div>
               )}
               {status === "error" && (
@@ -183,13 +180,12 @@ export default function Membership() {
         </div>
       </section>
 
-      {/* FAQs */}
       <section className="section faq-section">
         <div className="container faq-container">
           <div className="text-center mb-section">
             <span className="badge badge-green">Help</span>
             <h2 className="section-title">Frequently Asked Questions</h2>
-            <p className="section-subtitle">Everything you need to know about membership</p>
+            <p className="section-subtitle">Everything you need to know about membership.</p>
           </div>
           <div className="faq-list">
             {faqs.map((faq, i) => (

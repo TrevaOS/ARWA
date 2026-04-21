@@ -166,7 +166,7 @@ export default function Blogs() {
                 </div>
               </div>
               <div className="blog-featured-visual">
-                <div className={`blog-featured-icon bfi-${blogs[0].color}`}>📰</div>
+                <div className={`blog-featured-icon bfi-${blogs[0].color}`}><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 5h16v14H4z"/><path d="M4 9h16"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></div>
               </div>
             </div>
           )}
@@ -198,7 +198,7 @@ export default function Blogs() {
 
           {filtered.length === 0 && (
             <div className="places-empty">
-              <span style={{ fontSize: "3rem" }}>📭</span>
+              <span style={{ lineHeight: 0 }}><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="8"/></svg></span>
               <p>No posts in this category yet.</p>
             </div>
           )}

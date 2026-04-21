@@ -3,8 +3,8 @@ import './Contact.css'
 
 // ─── Google Apps Script Web App URL ──────────────────────────────────────────
 // After deploying the Apps Script (see AppScript.js), paste your deployment URL here
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID_HERE/exec'
-// Replace YOUR_DEPLOYMENT_ID_HERE with the deployed Apps Script URL after deploying AppScript.js
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3AKBKyRzQ_48DQYaEgMuWXe13yPruwFxgkfYPnTap6gfKBBePTCyqs7WPKOjqKFz3/exec'
+// Active deployment URL is configured below.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const contactInfo = [

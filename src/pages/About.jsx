@@ -1,25 +1,16 @@
 import './About.css'
 
-/*
- * NOTE: Team member details and full founding year are pending confirmation.
- * The confirmed president is Dr. Chandana Pradeep (per official communication).
- * Update this file with full committee details once available from ARWA leadership.
- */
-
 export default function About() {
   return (
     <div className="about-page">
-
-      {/* Hero */}
       <section className="page-hero">
         <div className="container">
           <span className="badge badge-green">Our Story</span>
           <h1>About Our Association</h1>
-          <p>By the people, for the people, with the people serving the residents of Attiguppe, Bengaluru.</p>
+          <p>By the people, for the people, and with the people serving the residents of Attiguppe, Bengaluru.</p>
         </div>
       </section>
 
-      {/* Logo + Story */}
       <section className="section">
         <div className="container about-story">
           <div className="story-text">
@@ -27,13 +18,13 @@ export default function About() {
             <div className="divider" />
             <h2 className="section-title">Built by Residents, for Residents</h2>
             <p>
-              The Attiguppe Residents Welfare Association (ARWA) is a registered community organisation serving the residents of Attiguppe, West Bengaluru. We are committed to building a well-organised, safe, clean, and inclusive neighbourhood where every resident enjoys overall well-being and a strong sense of belonging.
+              The Attiguppe Residents Welfare Association (ARWA) is a registered community organisation serving the residents of Attiguppe, West Bengaluru. We are committed to building a well organised, safe, clean, and inclusive neighbourhood where every resident enjoys overall well being and a strong sense of belonging.
             </p>
             <p>
-              From organising free health camps and cultural festivals to launching the Women's Wing, ARWA actively engages with residents to address civic issues, celebrate milestones, and foster lasting community bonds.
+              From free health camps and cultural festivals to the Women's Wing, ARWA engages with residents to address civic issues, celebrate milestones, and foster lasting community bonds.
             </p>
             <p>
-              Our structure is democratic and transparent. Every decision is made collectively, every rupee is accounted for, and every voice matters because together, we build a healthier, happier, and responsible neighbourhood.
+              Our structure is democratic and transparent. Every decision is made collectively. Every rupee is accounted for. Every voice matters.
             </p>
           </div>
           <div className="story-visual">
@@ -43,16 +34,12 @@ export default function About() {
                 alt="ARWA Logo"
                 loading="lazy"
                 className="about-logo-img"
-                onError={e => {
-                  e.target.src = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700'
-                }}
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Leadership */}
       <section className="section team-section">
         <div className="container">
           <div className="section-head center">
@@ -71,7 +58,7 @@ export default function About() {
                 <div className="team-role role-blue">President</div>
                 <h3 className="team-name">Dr. Chandana Pradeep</h3>
                 <p className="team-bio">
-                  Leading the Attiguppe Residents Welfare Association with a vision to build a stronger, healthier, and more connected community. Dr. Chandana Pradeep spearheads initiatives including the Internship Programme, Women's Wing, and community welfare activities.
+                  Leading the association with a vision to build a stronger, healthier, and more connected community. Dr. Chandana Pradeep leads the Internship Programme, Women's Wing, and community welfare initiatives.
                 </p>
                 <div className="team-contact">
                   <a href="tel:+919986020447" className="team-phone">
@@ -84,125 +71,82 @@ export default function About() {
               </div>
             </div>
           </div>
-
-          <div className="team-note">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4M12 8h.01"/>
-            </svg>
-            <p>Full committee details will be updated here. Contact us for more information about our executive committee.</p>
-          </div>
         </div>
       </section>
 
-      {/* Women's Wing */}
       <section className="section womens-wing-about">
         <div className="container">
           <div className="section-head center">
             <span className="badge badge-green">Newly Launched</span>
             <div className="divider divider-center" />
             <h2 className="section-title">Women's Wing</h2>
-            <p className="section-subtitle">A platform for women to lead, share and grow together.</p>
+            <p className="section-subtitle">A platform for women to lead, share, and grow together.</p>
           </div>
           <div className="ww-about-card">
             <div className="ww-about-header">
-              <span className="ww-about-emoji">👩‍👩‍👧‍👦</span>
+              <span className="ww-about-icon" aria-hidden="true">
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <circle cx="7" cy="7" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M3 20v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" />
+                  <path d="M13 20v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" />
+                </svg>
+              </span>
               <div>
-                <h3>Empower · Inspire · Connect</h3>
-                <p>ARWA has recently launched its Women's Wing a dedicated platform for the women of Attiguppe to come together, lead community initiatives, and support each other.</p>
+                <h3>Empower | Inspire | Connect</h3>
+                <p>ARWA has launched its Women's Wing, a dedicated platform for the women of Attiguppe to come together, lead community initiatives, and support each other.</p>
               </div>
             </div>
             <div className="ww-about-pillars">
               <div className="ww-pillar-item">
-                <span>🎭</span>
-                <div>
-                  <strong>Community &amp; Cultural Activities</strong>
-                  <p>Celebrate traditions, festivals, and cultural milestones together.</p>
-                </div>
+                <span className="ww-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19h16"/><path d="M4 5l8 6 8-6"/><path d="M8 11v8"/><path d="M16 11v8"/></svg></span>
+                <div><strong>Community and Cultural Activities</strong><p>Celebrate traditions, festivals, and cultural milestones together.</p></div>
               </div>
               <div className="ww-pillar-item">
-                <span>🛡️</span>
-                <div>
-                  <strong>Safety &amp; Support Initiatives</strong>
-                  <p>Advocate for women's safety and welfare in the neighbourhood.</p>
-                </div>
+                <span className="ww-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></span>
+                <div><strong>Safety and Support Initiatives</strong><p>Advocate for women's safety and welfare in the neighbourhood.</p></div>
               </div>
               <div className="ww-pillar-item">
-                <span>🏥</span>
-                <div>
-                  <strong>Health &amp; Wellness Programs</strong>
-                  <p>Organise health camps, screenings, and wellness workshops.</p>
-                </div>
+                <span className="ww-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 4h6v16H9z"/><path d="M4 9h16v6H4z"/></svg></span>
+                <div><strong>Health and Wellness Programs</strong><p>Organise health camps, screenings, and wellness workshops.</p></div>
               </div>
               <div className="ww-pillar-item">
-                <span>💼</span>
-                <div>
-                  <strong>Skill Development &amp; Empowerment</strong>
-                  <p>Foster growth through skill-building and leadership programmes.</p>
-                </div>
+                <span className="ww-pillar-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5h8v2"/></svg></span>
+                <div><strong>Skill Development and Empowerment</strong><p>Foster growth through skill building and leadership programmes.</p></div>
               </div>
             </div>
-            <p className="ww-about-invite">All interested women residents are encouraged to join. Together, let us build a stronger and more vibrant community!</p>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
       <section className="section">
         <div className="container">
           <div className="section-head center">
             <span className="badge badge-blue">Our Purpose</span>
             <div className="divider divider-center" />
-            <h2 className="section-title">Vision &amp; Mission</h2>
+            <h2 className="section-title">Vision and Mission</h2>
           </div>
           <div className="about-vm-grid">
             <div className="about-vm-card">
-              <div className="about-vm-icon">🌟</div>
+              <div className="about-vm-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m12 2 2.8 5.7L21 8.6l-4.5 4.4 1.1 6.2L12 16.8 6.4 19.2l1.1-6.2L3 8.6l6.2-.9L12 2z" /></svg></div>
               <h3>Our Vision</h3>
-              <p>To build a well-organised, safe, clean, and inclusive neighbourhood where every resident enjoys overall well-being, mutual respect, and a strong sense of belonging, while fostering sustainable living and social harmony.</p>
+              <p>To build a well organised, safe, clean, and inclusive neighbourhood where every resident enjoys overall well being, mutual respect, and a strong sense of belonging.</p>
             </div>
             <div className="about-vm-card">
-              <div className="about-vm-icon">🎯</div>
+              <div className="about-vm-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
               <h3>Our Mission</h3>
               <ul className="about-mission-list">
-                <li>Community Unity encourage cooperation &amp; active participation</li>
-                <li>Effective Representation bridge between residents &amp; authorities</li>
-                <li>Collective Voice safeguard residents' rights &amp; welfare</li>
-                <li>Clean &amp; Green Living promote cleanliness &amp; sustainability</li>
-                <li>Community Engagement organise cultural &amp; social activities</li>
-                <li>Social Responsibility support seniors &amp; vulnerable groups</li>
-                <li>Awareness &amp; Safety promote civic &amp; environmental awareness</li>
+                <li>Community unity through active participation.</li>
+                <li>Effective representation between residents and authorities.</li>
+                <li>Collective voice to protect residents' rights and welfare.</li>
+                <li>Clean and green living through sustainability.</li>
+                <li>Community engagement through cultural and social activities.</li>
+                <li>Social responsibility for seniors and vulnerable groups.</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Instagram CTA */}
-      <section className="section about-insta-section">
-        <div className="container">
-          <div className="about-insta-card">
-            <div className="about-insta-text">
-              <h2>Follow Us on Instagram</h2>
-              <p>Stay updated with our latest events, community news, and initiatives from Attiguppe.</p>
-              <a
-                href="https://www.instagram.com/attiguppe_residents/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                </svg>
-                @attiguppe_residents
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </div>
   )
 }

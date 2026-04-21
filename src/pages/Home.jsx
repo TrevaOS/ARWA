@@ -22,7 +22,7 @@ const pastEvents = [
     month: 'MAR',
     day: '08',
     title: "Women's Day Celebration",
-    desc: 'A special celebration honouring the women of Attiguppe with cultural programmes, games, and a heartfelt community gathering.',
+    desc: 'A special celebration honouring the women of Attiguppe cultural programmes, games, and a heartfelt gathering to celebrate womanhood and community spirit.',
     tag: 'Community',
     color: 'green',
     year: '2026',
@@ -33,7 +33,7 @@ const pastEvents = [
     month: 'MAR',
     day: '29',
     title: 'Saree Walkathon',
-    desc: 'A unique walkathon celebrating the grace of the saree and bringing families together to honour tradition and promote togetherness.',
+    desc: 'A unique walkathon celebrating the grace of the saree bringing families and community members together to honor traditions, strengthen relationships, and promote togetherness.',
     tag: 'Cultural',
     color: 'orange',
     year: '2026',
@@ -77,7 +77,7 @@ const nearbyPlaces = [
     detail: 'Part of Namma Metro Purple Line (Line 4), connecting Mysuru Road to Whitefield. The station provides seamless connectivity to Majestic, MG Road, and Whitefield. Auto-rickshaws and buses are easily available outside.',
     distance: '0.2 km',
     color: 'blue',
-    frontImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Attiguppe_metro_station.jpg/1200px-Attiguppe_metro_station.jpg',
+    frontImg: 'https://media.newindianexpress.com/newindianexpress/2025-11-06/3c2zsty9/P_3482524581.jpg?w=1200&h=675&auto=format%2Ccompress&fit=max&enlarge=true',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -91,7 +91,7 @@ const nearbyPlaces = [
     id: 2,
     name: 'Lakshmi Narasimha Temple',
     category: 'Heritage',
-    desc: 'One of the oldest temples in the area and the family deity of the local shepherd community.',
+    desc: 'One of the oldest temples in the area the family deity of the local shepherd community, renovated in the 17th century.',
     detail: 'The iconic Lakshmi Narasimha Swami Temple is a cornerstone of Attiguppe\'s cultural identity. Believed to be established by Rishi Durvasa, the temple was renovated in the 17th century and remains the spiritual heart of the community.',
     distance: '0.4 km',
     color: 'orange',
@@ -111,7 +111,7 @@ const nearbyPlaces = [
     detail: 'Government Model High School, Attiguppe also known as Government High School PU College, RP Layout, Vijayanagar has been educating the local community for generations. Venue for the Free Health Camp organised by ARWA.',
     distance: '0.6 km',
     color: 'green',
-    frontImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Vijayanagar%2C_Bangalore.jpg/1280px-Vijayanagar%2C_Bangalore.jpg',
+    frontImg: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
@@ -127,7 +127,7 @@ const nearbyPlaces = [
     detail: 'The vibrant Vijayanagar Market is one of the busiest commercial hubs in west Bengaluru, offering everything from fresh vegetables and fruits to clothing, hardware, and street food. Easily accessible from Attiguppe.',
     distance: '0.8 km',
     color: 'red',
-    frontImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/KR_Market_Bangalore.jpg/1280px-KR_Market_Bangalore.jpg',
+    frontImg: 'https://th-i.thgim.com/public/incoming/zgk3di/article69288454.ece/alternates/FREE_1200/BBMP_04.jpeg',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="9" cy="21" r="1"/>
@@ -148,13 +148,13 @@ const historyHighlights = [
   {
     year: '15th–16th C',
     title: 'Vijayanagara Roots',
-    desc: 'The name Attiguppe traces back to the Vijayanagara Empire. Atti means paddy and Gupe means heap, reflecting its agricultural roots.',
+    desc: 'The name "Attiguppe" traces back to the Vijayanagara Empire. "Atti" (paddy) + "gupe" (heap) a testament to its rich agricultural origins.',
     color: 'orange',
   },
   {
     year: '17th C',
     title: 'Lakshmi Narasimha Temple',
-    desc: 'The Lakshmi Narasimha Temple was renovated and became a cornerstone of Attiguppe cultural identity.',
+    desc: 'The iconic Lakshmi Narasimha Temple, family deity of the local shepherd community, was renovated becoming a cornerstone of the area\'s cultural identity.',
     color: 'green',
   },
   {
@@ -202,7 +202,6 @@ export default function Home() {
   const { idx, go } = useCarousel(galleryImages.length)
   const [showInternship, setShowInternship] = useState(false)
   const [flippedCard, setFlippedCard] = useState(null)
-  const touchStarted = useRef(false)
 
   useEffect(() => {
     const timer = setTimeout(() => setShowInternship(true), 3000)
@@ -278,7 +277,9 @@ export default function Home() {
             className="hero-bg-img"
             src="https://assets-news.housing.com/news/wp-content/uploads/2020/12/01163300/Bengaluru%E2%80%99s-Vidhana-Soudha-could-be-worth-over-Rs-3900-crores-FB-1200x700-compressed.jpg"
             alt="Attiguppe neighbourhood"
-            onError={e => { e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Vidhana_Soudha%2C_Bangalore.jpg/1280px-Vidhana_Soudha%2C_Bangalore.jpg' }}
+            onError={e => {
+              e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Vidhana_Soudha%2C_Bangalore.jpg/1280px-Vidhana_Soudha%2C_Bangalore.jpg'
+            }}
           />
           <div className="hero-overlay" />
         </div>
@@ -516,7 +517,7 @@ export default function Home() {
               <span className="badge badge-blue">Around You</span>
               <div className="divider" />
               <h2 className="section-title">Nearby Attractions</h2>
-              <p className="section-subtitle">Tap on mobile or hover on desktop to explore what Attiguppe has to offer.</p>
+              <p className="section-subtitle">Hover to explore what Attiguppe has to offer.</p>
             </div>
             <Link to="/places" className="btn btn-outline">See All Places</Link>
           </div>
@@ -526,17 +527,7 @@ export default function Home() {
               <div
                 key={place.id}
                 className={`flip-card${flippedCard === place.id ? ' flipped' : ''}`}
-                onClick={() => {
-                  if (touchStarted.current) {
-                    touchStarted.current = false
-                    return
-                  }
-                  setFlippedCard(flippedCard === place.id ? null : place.id)
-                }}
-                onTouchStart={() => {
-                  touchStarted.current = true
-                  setFlippedCard(flippedCard === place.id ? null : place.id)
-                }}
+                onClick={() => setFlippedCard(flippedCard === place.id ? null : place.id)}
                 onMouseEnter={() => setFlippedCard(place.id)}
                 onMouseLeave={() => setFlippedCard(null)}
               >
@@ -575,7 +566,7 @@ export default function Home() {
             <div className="ww-text">
               <span className="badge badge-green">Newly Launched</span>
               <h2>Women's Wing</h2>
-              <p>ARWA proudly announces the formation of the <strong>Women's Wing</strong>, a platform for women to lead, share, and grow together. Empower. Inspire. Connect.</p>
+              <p>ARWA proudly announces the formation of the <strong>Women's Wing</strong> a platform for women to lead, share &amp; grow together. Empower | Inspire | Connect</p>
               <ul className="ww-pillars">
                 <li>Community &amp; Cultural Activities</li>
                 <li>Safety &amp; Support Initiatives</li>
@@ -625,7 +616,7 @@ export default function Home() {
               </svg>
               @attiguppe_residents
             </a>
-            <p className="insta-handle-note">51+ followers | 9 posts | Events, health camps, and community updates</p>
+            <p className="insta-handle-note">51+ followers | 9 posts | Events, health camps, community updates</p>
           </div>
         </div>
       </section>
@@ -651,3 +642,4 @@ export default function Home() {
     </div>
   )
 }
+

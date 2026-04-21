@@ -83,7 +83,7 @@ export default function Gallery() {
 
           <div className="gallery-insta-note">
             <p>
-              See more photos and updates on our Instagram —{' '}
+              See more photos and updates on our Instagram.{' '}
               <a href="https://www.instagram.com/attiguppe_residents/" target="_blank" rel="noopener noreferrer">
                 @attiguppe_residents
               </a>
@@ -119,3 +119,4 @@ export default function Gallery() {
     </div>
   )
 }
+
