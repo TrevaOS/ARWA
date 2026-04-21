@@ -1,4 +1,5 @@
 import './About.css'
+import arwaLogo from '../assets/arwa-logo.png'
 
 export default function About() {
   return (
@@ -30,7 +31,7 @@ export default function About() {
           <div className="story-visual">
             <div className="story-img-wrap">
               <img
-                src="/assets/arwa-logo.png"
+                src={arwaLogo}
                 alt="ARWA Logo"
                 loading="lazy"
                 className="about-logo-img"
