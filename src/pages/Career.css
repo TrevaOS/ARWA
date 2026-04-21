@@ -1,0 +1,140 @@
+.career-page {
+  background: var(--bg-soft);
+}
+
+.career-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.career-list {
+  display: grid;
+  gap: 24px;
+}
+
+.career-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  background: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.career-image-wrap {
+  position: relative;
+  min-height: 260px;
+}
+
+.career-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.career-status {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.career-status.open {
+  background: var(--mint-light);
+  color: var(--mint-dark);
+}
+
+.career-status.closed {
+  background: rgba(239, 118, 122, 0.12);
+  color: var(--soft-red);
+}
+
+.career-content {
+  padding: 24px;
+}
+
+.career-content h2 {
+  margin-bottom: 8px;
+}
+
+.career-team {
+  margin-bottom: 14px;
+  color: var(--calm-blue);
+  font-weight: 600;
+}
+
+.career-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.career-type {
+  font-weight: 700;
+  color: var(--mint-dark);
+}
+
+.career-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.career-block h3 {
+  margin: 12px 0 8px;
+  font-size: 1rem;
+}
+
+.career-block ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.career-block li {
+  margin-bottom: 6px;
+  color: var(--text-mid);
+}
+
+.career-contact {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.career-contact a {
+  color: var(--calm-blue);
+  font-weight: 700;
+}
+
+.career-empty {
+  text-align: center;
+  color: var(--text-light);
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+@media (max-width: 980px) {
+  .career-card {
+    grid-template-columns: 1fr;
+  }
+
+  .career-image-wrap {
+    height: 280px;
+  }
+
+  .career-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -13,6 +13,7 @@ import Places from './pages/Places'
 import NotFound from './pages/NotFound'
 import Blogs from './pages/Blogs'
 import Membership from './pages/Membership'
+import Career from './pages/Career'
 import './App.css'
 
 function ScrollToTop() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/places" element={<Places />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/membership" element={<Membership />} />
+          <Route path="/career" element={<Career />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

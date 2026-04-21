@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import './Home.css'
+import { careerOpportunities, homeGalleryImages } from '../data/content'
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
@@ -37,34 +38,6 @@ const pastEvents = [
     tag: 'Cultural',
     color: 'orange',
     year: '2026',
-  },
-]
-
-const galleryImages = [
-  {
-    id: 1,
-    src: 'https://content.jdmagicbox.com/comp/bangalore/w7/080pxx80.xx80.191120193649.y4w7/catalogue/lakshminarasimha-temple-chandra-layout-bangalore-temples-5j4p5sda9x.jpg',
-    alt: 'Lakshmi Narasimha Temple, Attiguppe',
-  },
-  {
-    id: 2,
-    src: 'https://i.ytimg.com/vi/W7Y46BawnhM/maxresdefault.jpg',
-    alt: 'Lakshmi Narasimha Swami Temple',
-  },
-  {
-    id: 3,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Attiguppe_metro_station.jpg/1200px-Attiguppe_metro_station.jpg',
-    alt: 'Attiguppe Metro Station',
-  },
-  {
-    id: 4,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Vidhana_Soudha%2C_Bangalore.jpg/1280px-Vidhana_Soudha%2C_Bangalore.jpg',
-    alt: 'Vidhana Soudha, Bengaluru',
-  },
-  {
-    id: 5,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/KR_Market_Bangalore.jpg/1280px-KR_Market_Bangalore.jpg',
-    alt: 'KR Market, Bengaluru',
   },
 ]
 
@@ -199,7 +172,8 @@ function useCarousel(total, auto = 4000) {
 // ─── COMPONENT ──────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const { idx, go } = useCarousel(galleryImages.length)
+  const featuredInternship = careerOpportunities[0]
+  const { idx, go } = useCarousel(homeGalleryImages.length)
   const [showInternship, setShowInternship] = useState(false)
   const [flippedCard, setFlippedCard] = useState(null)
 
@@ -222,8 +196,8 @@ export default function Home() {
               </svg>
             </button>
             <div className="internship-popup-body">
-              <div className="internship-popup-badge">Internship Opportunity</div>
-              <h2 className="internship-popup-title">Join ARWA as an Intern!</h2>
+              <div className="internship-popup-badge">{featuredInternship?.type || 'Internship'} Opportunity</div>
+              <h2 className="internship-popup-title">{featuredInternship?.title || 'Join ARWA as an Intern!'}</h2>
               <p className="internship-popup-sub">
                 Are you passionate about community development, civic engagement, and creating real impact at the grassroots level?
               </p>
@@ -258,11 +232,15 @@ export default function Home() {
                 </div>
               </div>
               <p className="internship-popup-contact">
-                <strong>Dr. Chandana Pradeep</strong> President<br />
-                <a href="tel:+919986020447">+91 9986020447</a>
+                <strong>{featuredInternship?.contactName || 'Dr. Chandana Pradeep'}</strong>{' '}
+                {featuredInternship?.contactRole || 'President'}
+                <br />
+                <a href={`tel:${(featuredInternship?.contactPhone || '+919986020447').replace(/\s+/g, '')}`}>
+                  {featuredInternship?.contactPhone || '+91 9986020447'}
+                </a>
               </p>
               <div className="internship-popup-actions">
-                <a href="tel:+919986020447" className="btn btn-primary">Get in Touch</a>
+                <Link to="/career" className="btn btn-primary">View Career Opportunities</Link>
                 <button className="btn btn-outline" onClick={() => setShowInternship(false)}>Maybe Later</button>
               </div>
             </div>
@@ -474,7 +452,7 @@ export default function Home() {
 
           <div className="carousel">
             <div className="carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
-              {galleryImages.map((img) => (
+              {homeGalleryImages.map((img) => (
                 <div key={img.id} className="carousel-slide">
                   <img src={img.src} alt={img.alt} loading="lazy" />
                   <div className="carousel-caption">{img.alt}</div>
@@ -492,7 +470,7 @@ export default function Home() {
               </svg>
             </button>
             <div className="carousel-dots">
-              {galleryImages.map((_, i) => (
+              {homeGalleryImages.map((_, i) => (
                 <button
                   key={i}
                   className={`dot${i === idx ? ' active' : ''}`}
@@ -642,4 +620,3 @@ export default function Home() {
     </div>
   )
 }
-
